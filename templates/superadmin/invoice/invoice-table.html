@@ -13,6 +13,7 @@
                                     <thead>
                                         <tr>
                                             <th>Sl No</th>
+                                            <th>Invoice No</th>
                                             <th>Customer</th>
                                             <th>Date</th>
                                             <th>Amount</th>
@@ -25,6 +26,7 @@
                                         {% for i in datas %}
                                         <tr>
                                             <td>{{forloop.counter0|add:datas.start_index}}</td>
+                                            <td>#INVC_{{i.id|stringformat:"04d"}}</td>
                                             <td>{{i.customer.name}}</td>
                                             <td>{{i.date}}</td>
                                             <td>{{i.amount}}</td>
