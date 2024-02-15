@@ -1,0 +1,57 @@
+{% include 'superadmin/layouts/header.html' %}
+<!--app-content open-->
+ <div class="main-content app-content mt-0">
+     <div class="side-app">
+         <!-- CONTAINER -->
+         <div class="main-container container-fluid">
+             <!-- PAGE-HEADER -->
+             <div class="page-header">
+                 <h1 class="page-title">Customers</h1>
+                 <div>
+                     <a class="btn btn-primary" href="{% url 'superadmin:userlist' %}"><i class="side-menu__icon fe fe-eye mx-1"></i>View All</a>
+                 </div>
+             </div>
+             <!-- PAGE-HEADER END -->
+
+             <!-- ROW OPEN -->
+             <div class="row">
+                 <div class="col-md-8 col-xl-8 col-12">
+                     <div class="card">
+                         <div class="card-body">
+                             <form method="post">
+                                 {% csrf_token %}
+                                 <div class="row col-lg-12">
+                                     <div class="form-group col-lg-6 col-12">
+                                         <label for="" class="form-label"> Name</label>
+                                         <input type="text" class="form-control" id="" placeholder="Name" name="name" required value="{{data.name}}">
+                                     </div>
+                                    <div class="form-group col-lg-6 col-12">
+                                         <label for="" class="form-label"> Phone</label>
+                                         <input type="text" class="form-control" id="" placeholder="Phone" name="phone" onkeypress='return restrictAlphabets(event)'  value="{{data.phone}}">
+                                     </div>
+                                     <div class="form-group col-lg-6 col-12">
+                                         <label for="" class="form-label"> E-mail</label>
+                                         <input type="email" class="form-control" id="" placeholder="E-mail" name="email"  value="{{data.email}}">
+                                     </div>
+<div class="form-group col-lg-6 col-12">
+                                         <label for="" class="form-label">Address</label>
+                                         <textarea class="form-control" id="" placeholder="Address" name="address" requied >{{data.address}}</textarea>
+                                     </div>
+
+                                     <div class="form-group col-lg-12 col-12">
+                                         <button type="submit" class="btn btn-primary mt-4 mb-0" id="submitButton">Submit</button>
+                                         <a href="" class="btn btn-danger mt-4 mb-0">Cancel</a>
+                                     </div>
+                                 </div>
+                             </form>
+                         </div>
+                     </div>
+                     <!-- ROW CLOSED -->
+                 </div>
+                 <!-- CONTAINER END -->
+             </div>
+         </div>
+     </div>
+     <!--app-content close-->
+
+{% include 'superadmin/layouts/footer.html' %}
