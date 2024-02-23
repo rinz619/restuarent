@@ -3,9 +3,12 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from superadmin import views
+from .views import DynamicFormView
 app_name = 'superadmin'
 
 urlpatterns = [
+    path('create/<str:form_type>/', DynamicFormView.as_view(), name='create'),
+
     path('',views.index.as_view(),name='login'),
     path('Dashboard',views.dashboard.as_view(),name='dashboard'),
     path('Logout', views.Logout.as_view(), name='Logout'),

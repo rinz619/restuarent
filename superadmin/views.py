@@ -11,6 +11,26 @@ from superadmin.models import *
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template import loader
 from django.db.models import Q
+import sys
+
+from .forms import customerForm, invoiceForm
+
+class DynamicFormView(View):
+    def get(self, request, form_type):
+        FormClass = getattr(sys.modules[__name__], form_type + 'Form')
+        form = FormClass()
+        return render(request, 'superadmin/create.html', {'form': form,'formname':form_type})
+
+    def post(self, request, form_type):
+        FormClass = getattr(sys.modules[__name__], form_type + 'Form')
+        form = FormClass(request.POST)
+
+        if form.is_valid():
+           form.save()
+           return HttpResponse('in')
+        else:
+           return render(request, 'superadmin/create.html', {'form': form,'formname':form_type})
+
 
 
 # Create your views here.

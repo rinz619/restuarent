@@ -76,7 +76,6 @@ class User(AbstractBaseUser):
     user_type = models.PositiveSmallIntegerField(choices=USER_TYPE_CHOICES, default=1, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
-    is_active = models.BooleanField(default=True, blank=True, null=True)
 
     USERNAME_FIELD = 'email'
 
@@ -124,7 +123,6 @@ class Customers(models.Model):
     phone = models.TextField(blank=True, null=True)
     email = models.TextField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
-    is_active = models.BooleanField(default=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
@@ -133,7 +131,6 @@ class Invoices(models.Model):
     amount = models.TextField(blank=True, null=True)
     date = models.DateField(blank=True, null=True)
     status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=1, blank=True, null=True)
-    is_active = models.BooleanField(default=True, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
 
