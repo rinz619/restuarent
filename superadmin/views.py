@@ -44,7 +44,6 @@ def edit(request, form_type, pk):
             return redirect('/superadmin/list/' + form_type)
     else:
         form = FormClass(instance=instance)
-        # Populate form fields with instance data
         form.initial = model_to_dict(instance)
 
     return render(request, 'superadmin/create.html', {'form': form, 'formname': form_type, 'pk': pk})
