@@ -93,6 +93,7 @@ class Listdatas(View):
 class index(View):
     def get(self, request):
         context = {}
+
         return renderhelper(request, 'login', 'login',context)
     def post(self, request):
         context = {}
@@ -118,6 +119,8 @@ class Logout(LoginRequiredMixin,View):
 class dashboard(LoginRequiredMixin,View):
     def get(self, request):
         context = {}
+        # cs = Customers.objects.all().delete()
+        # print(cs)
         context['customer'] = Customers.objects.all().count()
         context['invoice'] = Invoices.objects.all().count()
         return renderhelper(request, 'home', 'index',context)

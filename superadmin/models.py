@@ -120,6 +120,7 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
 class Customers(models.Model):
+    uniqueid = models.CharField(max_length=20,blank=False, null=False)
     name = models.CharField(max_length=20,blank=False, null=False)
     phone = models.BigIntegerField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
@@ -129,7 +130,26 @@ class Customers(models.Model):
 
 
 class Invoices(models.Model):
+    uniqueid = models.CharField(max_length=20,blank=False, null=False)
     customer = models.ForeignKey(Customers,on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True,default=0.00)
+    amount = models.DecimalField(max_digits=10, decimal_places=2,blank=True, null=True)
     date = models.DateField(blank=True, null=True)
     status = models.TextField(choices=STATUS_CHOICES, default='unpaid', blank=True, null=True)
+
+
+@receiver(pre_save, sender=Customers)
+@receiver(pre_save, sender=Invoices)
+def generate_id(sender, instance, **kwargs):
+    if not instance.id:
+        model_class = sender
+        prefix = 'CUST' if model_class == Customers else 'INVC'
+        last_id = model_class.objects.all().order_by('id').last()
+        try:
+            if last_id:
+                last_id_int = int(last_id.uniqueid.split('_')[-1])
+                new_id = f'{prefix}_{last_id_int + 1:04d}'
+            else:
+                new_id = f'{prefix}_0001'
+        except:
+            new_id = f'{prefix}_0001'
+        instance.uniqueid = new_id

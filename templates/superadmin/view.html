@@ -42,15 +42,17 @@
                                 <tbody>
                                     {% for entry in entries_data %}
                                     <tr>
+                                        <td> {{forloop.counter}}</td>
                                         {% for field_name, value in entry.items %}
-                                            <td>
-                                                
-                                                {% if field_name == 'customer' %}
-                                                    {% fetchuser value %}
+
+                                                {% if field_name == 'id' %}
+
+                                                {% elif field_name == 'customer' %}
+                                                    <td> {% fetchuser value %}</td>
                                                 {% else %}
-                                                    {{ value }}
+                                                    <td> {{ value }}
                                                 {% endif %}
-                                            </td>
+
                                         {% endfor %}
                                         <td>
 
