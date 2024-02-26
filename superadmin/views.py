@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.views import View
 from django.http import HttpResponse,JsonResponse
 from superadmin.helper import renderhelper,is_ajax
@@ -13,9 +13,11 @@ from django.template import loader
 from django.db.models import Q
 import sys
 
-from .forms import customerForm, invoiceForm
+from .forms import CustomersForm, InvoicesForm
 
-class DynamicFormView(View):
+
+# rework section start 
+class Createdatas(View):
     def get(self, request, form_type):
         FormClass = getattr(sys.modules[__name__], form_type + 'Form')
         form = FormClass()
@@ -27,9 +29,64 @@ class DynamicFormView(View):
 
         if form.is_valid():
            form.save()
-           return HttpResponse('in')
+           return redirect('/superadmin/list/'+form_type)
         else:
            return render(request, 'superadmin/create.html', {'form': form,'formname':form_type})
+
+def edit(request, form_type, pk):
+    FormClass = getattr(sys.modules[__name__], form_type + 'Form')
+    instance = get_object_or_404(FormClass.Meta.model, pk=pk)
+    
+    if request.method == 'POST':
+        form = FormClass(request.POST, instance=instance)
+        if form.is_valid():
+            form.save()
+            return redirect('/superadmin/list/' + form_type)
+    else:
+        form = FormClass(instance=instance)
+        # Populate form fields with instance data
+        form.initial = model_to_dict(instance)
+
+    return render(request, 'superadmin/create.html', {'form': form, 'formname': form_type, 'pk': pk})
+
+from django.forms.models import model_to_dict
+from django.db import models
+
+class Listdatas(View):
+    def get(self, request, form_type):
+        ModelClass = getattr(sys.modules[__name__], form_type)
+        entries = ModelClass.objects.all()
+        fields = ModelClass._meta.fields
+        field_names_verbose = [field.verbose_name for field in fields]
+
+        entries_data = [model_to_dict(entry, fields=[field.name for field in fields]) for entry in entries]
+
+        return render(request, 'superadmin/view.html', {'entries_data': entries_data, 'field_names_verbose': field_names_verbose, 'formname': form_type})
+
+# rework section end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

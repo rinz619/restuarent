@@ -2,6 +2,8 @@ from django.db import models
 # from django.contrib.postgres.fields import ArrayField
 # from rest_framework import serializers
 # from django.utils.text import slugify
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
 
 
 from django.contrib.auth.models import AbstractBaseUser
@@ -23,9 +25,9 @@ USER_TYPE_CHOICES = (
   )
 
 STATUS_CHOICES = (
-      (1, 'unpaid'),
-      (2, 'paid'),
-      (3, 'cancelled'),
+      ('unpaid', 'unpaid'),
+      ('paid', 'paid'),
+      ('cancelled', 'cancelled'),
   )
 
 
@@ -117,20 +119,17 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
-
 class Customers(models.Model):
-    name = models.TextField(blank=True, null=True)
-    phone = models.TextField(blank=True, null=True)
-    email = models.TextField(blank=True, null=True)
+    name = models.CharField(max_length=20,blank=False, null=False)
+    phone = models.BigIntegerField(blank=True, null=True)
+    email = models.EmailField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
+    def __str__(self):
+        return self.name
+
 
 class Invoices(models.Model):
-    customer = models.ForeignKey(Customers,blank=True, null=True, on_delete=models.CASCADE)
-    amount = models.TextField(blank=True, null=True)
+    customer = models.ForeignKey(Customers,on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=5, decimal_places=2,blank=True, null=True,default=0.00)
     date = models.DateField(blank=True, null=True)
-    status = models.PositiveSmallIntegerField(choices=STATUS_CHOICES, default=1, blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    updated_at = models.DateTimeField(auto_now=True, null=True, blank=True)
-
+    status = models.TextField(choices=STATUS_CHOICES, default='unpaid', blank=True, null=True)

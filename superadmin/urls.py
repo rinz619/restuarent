@@ -3,11 +3,21 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from superadmin import views
-from .views import DynamicFormView
+from .views import Createdatas,Listdatas
 app_name = 'superadmin'
 
 urlpatterns = [
-    path('create/<str:form_type>/', DynamicFormView.as_view(), name='create'),
+
+    # Rework urls start 
+    path('create/<str:form_type>/', Createdatas.as_view(), name='create'),
+    path('list/<str:form_type>/', Listdatas.as_view(), name='list'),
+    path('edit/<str:form_type>/<int:pk>/', views.edit, name='edit'),
+
+     # Rework urls end 
+
+
+
+
 
     path('',views.index.as_view(),name='login'),
     path('Dashboard',views.dashboard.as_view(),name='dashboard'),
