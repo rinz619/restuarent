@@ -1,0 +1,91 @@
+<input type="hidden" id="url" name="url" value="{{request.path}}">
+<input type="hidden" id="page" name="page" value="{{page}}">
+		 {% if messages %}
+<div id="message_div" class="succs-msg">
+    {% for message in messages %}
+        <label class="form-group" style="">
+            <p style="color:green;">{{message}}</p>
+        </label>
+    {% endfor %}
+</div>
+{% endif %}
+<table class="table border-top table-bordered mb-0 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl No</th>
+                                            <th>title</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% if datas %}
+                                        {% for i in datas %}
+                                        <tr>
+                                            <td>{{forloop.counter0|add:datas.start_index}}</td>
+                                            <td>{{i.title}}</td>
+                                            <td>
+                                               <div class="material-switch">
+                                                     <input id="someSwitchOptionSuccess{{i.id}}" name="someSwitchOption001" type="checkbox" {% if i.is_active %}checked onclick="categorystatus({{i.id}},2)"{% else %}onclick="categorystatus({{i.id}},1)" {% endif %}  />
+                                                     <label for="someSwitchOptionSuccess{{i.id}}" class="label-success"></label>
+                                                 </div>
+                                            </td>
+                                            <td>
+
+                                                <a class="btn btn-info btn-sm mb-1" href="{% url 'superadmin:categoryedit' i.id %}"><i class="side-menu__icon fe fe-edit"></i></a>
+
+                                                <a class="btn btn-danger btn-sm mb-1" href="javascript:void(0)" onclick="delete_modal({{i.id}})"><i class="side-menu__icon fe fe-trash" ></i></a>
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    {% else %}
+                                    <tr>
+                                        <td colspan="6" align="center">
+                                            No Data
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+
+                                    </tbody>
+                                </table>
+
+
+
+<div class="card-body">
+
+    Showing {{ datas.start_index }}-{{ datas.end_index }} of {{ datas.paginator.count }}
+    {% if datas.has_other_pages %}
+    <ul class="pagination">
+        {% if datas.has_previous %}
+        <li class="page-item page-prev">
+            <a class="page-link" href="javascript:void(0)" onclick="return filtercategory('{{ datas.previous_page_number }}');" tabindex="-1">Prev</a>
+        </li>
+        {% else %}
+        <li class="page-item page-prev">
+            <span class="page-link"   tabindex="-1">Prev</span>
+        </li>
+          {% endif %}
+         {% for i in datas.paginator.page_range %}
+        {% if datas.number == i %}
+        <li class="page-item active"><span class="page-link">
+            {{ i }}</span><span class="sr-only">(current)</span></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="return filtercategory('{{ i }}');">{{i}}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if datas.has_next %}
+        <li class="page-item page-next">
+            <a class="page-link" href="javascript:void(0)" onclick="return filtercategory('{{ datas.next_page_number }}');">Next</a>
+        </li>
+         {% else %}
+        <li class="page-item page-next"><span class="page-link">Next</span></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+    <!-- pagination-wrapper -->
+</div>
+
+<script>
+     $("#message_div").fadeOut(3000);
+</script>

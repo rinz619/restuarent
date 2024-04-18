@@ -23,9 +23,15 @@ urlpatterns = [
     path('Dashboard',views.dashboard.as_view(),name='dashboard'),
     path('Logout', views.Logout.as_view(), name='Logout'),
 
+    path('categorylist', views.categorylist.as_view(), name='categorylist'),
+    path('categorycreate', views.categorycreate.as_view(), name='categorycreate'),
+    path('categoryedit/<int:id>', views.categorycreate.as_view(), name='categoryedit'),
+
     path('userlist', views.userlist.as_view(), name='userlist'),
     path('usercreate', views.usercreate.as_view(), name='usercreate'),
     path('useredit/<int:id>', views.usercreate.as_view(), name='useredit'),
+
+
     
     path('invoicelist', views.invoicelist.as_view(), name='invoicelist'),
     path('invoicecreate', views.invoicecreate.as_view(), name='invoicecreate'),

@@ -119,6 +119,15 @@ class User(AbstractBaseUser):
 
     objects = UserManager()
 
+
+
+class Category(models.Model):
+    title = models.TextField(null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class Customers(models.Model):
     uniqueid = models.CharField(max_length=20,blank=False, null=False)
     name = models.CharField(max_length=20,blank=False, null=False)

@@ -202,6 +202,85 @@ class usercreate(LoginRequiredMixin, View):
 
 
 
+# Category module start
+class categorylist(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+        conditions = Q()
+
+        if is_ajax(request):
+            page = request.GET.get('page', 1)
+            context['page'] = page
+            status = request.GET.get('status')
+            type = request.GET.get('type')
+            if type == '1':
+                id = request.GET.get('id')
+                vl = request.GET.get('vl')
+                cat = Category.objects.get(id=id)
+                if vl == '2':
+                    cat.is_active = False
+                else:
+                    cat.is_active = True
+                cat.save()
+                messages.info(request, 'Successfully Updated')
+            elif type == '2':
+                id = request.GET.get('id')
+                Category.objects.filter(id=id).delete()
+                messages.info(request, 'Successfully Deleted')
+            if status:
+                conditions &= Q(is_active=status)
+            data_list = Category.objects.filter(conditions).order_by('-id')
+            paginator = Paginator(data_list, 15)
+
+            try:
+                datas = paginator.page(page)
+            except PageNotAnInteger:
+                datas = paginator.page(1)
+            except EmptyPage:
+                datas = paginator.page(paginator.num_pages)
+            context['datas'] = datas
+            template = loader.get_template('superadmin/category/category-table.html')
+            html_content = template.render(context, request)
+            return JsonResponse({'status': True, 'template': html_content})
+
+        data = Category.objects.all().order_by('-id')
+        p = Paginator(data, 15)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = p.page(page_num)
+        except EmptyPage:
+            page = p.page(1)
+        context['datas'] = page
+        context['page'] = page_num
+        return renderhelper(request, 'category', 'category-view', context)
+
+class categorycreate(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+        try:
+            context['data'] = Category.objects.get(id=id)
+        except:
+            context['data'] = None
+        return renderhelper(request, 'category', 'category-create', context)
+
+    def post(self, request, id=None):
+        try:
+            data = Category.objects.get(id=id)
+            messages.info(request, 'Successfully Updated')
+        except:
+            data = Category()
+            messages.info(request, 'Successfully Added')
+
+
+        title = request.POST['title']
+        data.title=title
+        data.save()
+        return redirect('superadmin:categorylist')
+
+    # Category module end
+
+
+
 # Invoice module start
 class invoicelist(LoginRequiredMixin, View):
     def get(self, request,id=None):
