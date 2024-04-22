@@ -29,24 +29,27 @@
                                 <div class="row">
 
                                     <div class="form-group col-lg-2 col-12">
-                                        <input type="text" class="form-control" placeholder="Keyword Search">
+                                        <input type="text" class="form-control" id="searchkey" placeholder="Keyword Search">
                                     </div>
 
-                                    <div class="form-group col-lg-2 col-12">
-                                        <select name="country" class="form-control form-select select2"
-                                            data-bs-placeholder="Select Country">
-                                            <option selected>Active</option>
-                                            <option>Inactive</option>
+
+
+
+                                               <div class="form-group col-lg-2 col-12">
+                                                  <select name="" id="status" class="form-control form-select select2" data-bs-placeholder="Select Country">
+                                            <option value="">Select</option>
+                                            <option value="True">Active</option>
+                                            <option value="False">Inactive</option>
 
                                         </select>
-                                    </div>
+                                               </div>
 
-                                    <div class="form-group col-lg-3 col-12">
-                                        <a class="btn btn-primary mr-1" href="">Search</a>
-                                        <a class="btn btn-default" href="">Reset</a>
-                                    </div>
+                                               <div class="form-group col-lg-3 col-12">
+                                                   <a class="btn btn-primary mr-1" href="javascript:void(0)" onclick="filtercategory(1)">Search</a>
+                                                    <a class="btn btn-default" href="" >Reset</a>
+                                               </div>
 
-                                </div>
+                                       </div>
                             </form>
                             <div class="table-responsive">
                                 {% include 'superadmin/category/category-table.html' %}

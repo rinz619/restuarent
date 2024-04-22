@@ -65,7 +65,8 @@ function filterdata(data) {
 
 
 
-function filtercategory(data) {
+
+function filterbanner(data) {
   var page = '1'
     if(data != 'None'){
       page=data
@@ -92,7 +93,7 @@ function filtercategory(data) {
 
 
 
- function categorystatus(id,vl) {
+ function bannerstatus(id,vl) {
 
       page=$("#page").val();
 
@@ -115,7 +116,7 @@ function filtercategory(data) {
   }
 
 
- function categorydelete() {
+ function bannerdelete() {
 
       page=$("#page").val();
       id=$("#hid").val();
@@ -128,6 +129,84 @@ function filtercategory(data) {
       url: url,
       type: 'GET',
       data: {page:page,status:status,id:id,type:2},
+
+      success: function(data) {
+        $("#modaldemo5").modal('hide');
+
+       $(".table-responsive").html(data.template)
+
+
+      }
+  });
+  }
+
+
+
+
+
+function filtercategory(data) {
+  var page = '1'
+    if(data != 'None'){
+      page=data
+    }
+
+
+    var search = $('#searchkey').val()
+    var status = $('#status').val()
+
+    var url = $('#url').val()
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {page:page,status:status,search:search},
+
+      success: function(data) {
+
+        $(".table-responsive").html(data.template)
+
+
+      }
+  });
+  }
+
+
+
+ function categorystatus(id,vl) {
+
+      page=$("#page").val();
+
+
+    var search = $('#searchkey').val()
+    var status = $('#status').val()
+    var url = $('#url').val()
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {page:page,status:status,search:search,id:id,vl:vl,type:1},
+
+      success: function(data) {
+
+       $(".table-responsive").html(data.template)
+
+
+      }
+  });
+  }
+
+
+ function categorydelete() {
+
+      page=$("#page").val();
+      id=$("#hid").val();
+
+
+    var search = $('#searchkey').val()
+    var status = $('#status').val()
+    var url = $('#url').val()
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {page:page,status:status,search:search,id:id,type:2},
 
       success: function(data) {
         $("#modaldemo5").modal('hide');

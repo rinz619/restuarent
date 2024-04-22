@@ -132,42 +132,24 @@ class Menu(models.Model):
     title = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='menu', null=True, blank=True)
     price = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class Customers(models.Model):
-    uniqueid = models.CharField(max_length=20,blank=False, null=False)
-    name = models.CharField(max_length=20,blank=False, null=False)
-    phone = models.BigIntegerField(blank=True, null=True)
-    email = models.EmailField(blank=True, null=True)
-    address = models.TextField(blank=True, null=True)
-    def __str__(self):
-        return self.name
+
+class Banner(models.Model):
+    type = models.IntegerField(default=1)
+    image = models.FileField(upload_to='banner', null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 
-class Invoices(models.Model):
-    uniqueid = models.CharField(max_length=20,blank=False, null=False)
-    customer = models.ForeignKey(Customers,on_delete=models.CASCADE)
-    amount = models.DecimalField(max_digits=10, decimal_places=2,blank=True, null=True)
-    date = models.DateField(blank=True, null=True)
-    status = models.TextField(choices=STATUS_CHOICES, default='unpaid', blank=True, null=True)
-
-
-@receiver(pre_save, sender=Customers)
-@receiver(pre_save, sender=Invoices)
-def generate_id(sender, instance, **kwargs):
-    if not instance.id:
-        model_class = sender
-        prefix = 'CUST' if model_class == Customers else 'INVC'
-        last_id = model_class.objects.all().order_by('id').last()
-        try:
-            if last_id:
-                last_id_int = int(last_id.uniqueid.split('_')[-1])
-                new_id = f'{prefix}_{last_id_int + 1:04d}'
-            else:
-                new_id = f'{prefix}_0001'
-        except:
-            new_id = f'{prefix}_0001'
-        instance.uniqueid = new_id
+class Testimonials(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField(null=True, blank=True)
+    is_active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
