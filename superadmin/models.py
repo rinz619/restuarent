@@ -132,10 +132,19 @@ class Menu(models.Model):
     title = models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='menu', null=True, blank=True)
     price = models.TextField(null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+
+
+class Banner(models.Model):
+    type = models.IntegerField(default=1)
+    image = models.FileField(upload_to='banner', null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 class Customers(models.Model):
     uniqueid = models.CharField(max_length=20,blank=False, null=False)

@@ -15,6 +15,7 @@
                                             <th>Sl No</th>
                                             <th>image</th>
                                             <th>title</th>
+                                            <th>description</th>
                                             <th>category</th>
                                             <th>price</th>
                                             <th>Status</th>
@@ -38,6 +39,7 @@
 
                                                        </td>
                                             <td>{{i.title}}</td>
+                                            <td>{{i.description}}</td>
                                             <td>{{i.category.title}}</td>
                                             <td>$ {{i.price}}</td>
                                             <td>
@@ -57,7 +59,7 @@
                                     {% endfor %}
                                     {% else %}
                                     <tr>
-                                        <td colspan="6" align="center">
+                                        <td colspan="8" align="center">
                                             No Data
                                         </td>
                                     </tr>
