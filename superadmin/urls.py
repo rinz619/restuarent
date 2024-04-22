@@ -27,6 +27,10 @@ urlpatterns = [
     path('categorycreate', views.categorycreate.as_view(), name='categorycreate'),
     path('categoryedit/<int:id>', views.categorycreate.as_view(), name='categoryedit'),
 
+    path('menulist', views.menulist.as_view(), name='menulist'),
+    path('menucreate', views.menucreate.as_view(), name='menucreate'),
+    path('menuedit/<int:id>', views.menucreate.as_view(), name='menuedit'),
+
     path('userlist', views.userlist.as_view(), name='userlist'),
     path('usercreate', views.usercreate.as_view(), name='usercreate'),
     path('useredit/<int:id>', views.usercreate.as_view(), name='useredit'),
