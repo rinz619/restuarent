@@ -148,7 +148,7 @@ class Banner(models.Model):
 
 
 class Testimonials(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

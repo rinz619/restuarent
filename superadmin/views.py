@@ -47,10 +47,6 @@ class Logout(LoginRequiredMixin,View):
 class dashboard(LoginRequiredMixin,View):
     def get(self, request):
         context = {}
-        # cs = Customers.objects.all().delete()
-        # print(cs)
-        context['customer'] = Customers.objects.all().count()
-        context['invoice'] = Invoices.objects.all().count()
         return renderhelper(request, 'home', 'index',context)
 
 
@@ -344,7 +340,7 @@ class testimoniallist(LoginRequiredMixin, View):
             if status:
                 conditions &= Q(is_active=status)
             if search:
-                conditions &= Q(user__name__icontains=search) | Q(user__designation__icontains=search)
+                conditions &= Q(user__icontains=search)
             data_list = Testimonials.objects.filter(conditions).order_by('-id')
             paginator = Paginator(data_list, 15)
 
@@ -378,7 +374,6 @@ class testimonialcreate(LoginRequiredMixin, View):
         except:
             context['data'] = None
 
-        context['user'] = User.objects.filter(user_type=4,is_active=True).order_by('name')
         return renderhelper(request, 'testimonial', 'testimonial-create', context)
 
     def post(self, request, id=None):
@@ -391,11 +386,10 @@ class testimonialcreate(LoginRequiredMixin, View):
 
 
         user = request.POST['user']
-        usr = User.objects.get(id=user)
         description = request.POST['message']
 
 
-        data.user=usr
+        data.user=user
         data.description=description
         data.is_active=True
         data.save()

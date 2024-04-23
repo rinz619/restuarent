@@ -13,11 +13,8 @@
                                                <thead>
                                                    <tr>
                                                        <th>Sl No</th>
-                                                       <th>Imgae</th>
                                                        <th>Name</th>
                                                        <th>description</th>
-                                                       <th>designation</th>
-
                                                        <th>Status</th>
                                                        <th>Action</th>
                                                    </tr>
@@ -27,32 +24,9 @@
                                                   {% for i in datas %}
                                                    <tr>
                                                        <td>{{forloop.counter0|add:datas.start_index}}</td>
-                                                       <td>
-                                                           {% if i.user.image %}
-                                                                <ul id="lightgallery" style="display: flex;">
-                                                    <li class="img-td m-2" data-responsive="{{i.user.image.url}}" data-src="{{i.user.image.url}}">
-                                                        <a href="javascript:void(0)">
-                                                            <img class="img-responsive br-5" src="{{i.user.image.url}}" alt="Thumb-1">
-                                                        </a>
-                                                    </li>
 
-                                                </ul>
-
-                                                           {% else %}
-                                                                <ul id="lightgallery" style="display: flex;">
-                                                    <li class="img-td m-2" data-responsive="/media/user.jpg" data-src="/media/user.jpg">
-                                                        <a href="javascript:void(0)">
-                                                            <img class="img-responsive br-5" src="/media/user.jpg" alt="Thumb-1">
-                                                        </a>
-                                                    </li>
-
-                                                </ul>
-                                                           {% endif %}
-
-                                                       </td>
-                                                       <td>{{i.user.name}}</td>
+                                                       <td>{{i.user}}</td>
                                                        <td>{{i.description}}</td>
-                                                       <td>{{i.user.designation}}</td>
 
 
                                                        <td>
