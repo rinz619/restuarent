@@ -22,4 +22,5 @@ class index(View):
     def get(self, request):
         context = {}
         context['banners'] = Banner.objects.filter(is_active=True).order_by('?')[:1]
+        context['category'] = Category.objects.filter(is_active=True).order_by('id')
         return renderhelper(request, 'home', 'index',context)

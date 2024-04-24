@@ -14,6 +14,8 @@
                                         <tr>
                                             <th>Sl No</th>
                                             <th>title</th>
+                                            <th>Icon</th>
+                                            <th>image</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
@@ -24,6 +26,26 @@
                                         <tr>
                                             <td>{{forloop.counter0|add:datas.start_index}}</td>
                                             <td>{{i.title}}</td>
+                                            <td>
+                                                <ul id="" style="display: flex;">
+                                                    <li class="img-td m-2" data-responsive="{{i.icon.url}}" data-src="{{i.icon.url}}">
+                                                        <a href="{{i.icon.url}}" target="_blank">
+                                                            <img class="img-responsive br-5" src="{{i.icon.url}}" alt="Thumb-1">
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul id="" style="display: flex;">
+                                                    <li class="img-td m-2" data-responsive="{{i.image.url}}" data-src="{{i.image.url}}">
+                                                        <a href="{{i.image.url}}" target="_blank">
+                                                            <img class="img-responsive br-5" src="{{i.image.url}}" alt="Thumb-1">
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </td>
                                             <td>
                                                <div class="material-switch">
                                                      <input id="someSwitchOptionSuccess{{i.id}}" name="someSwitchOption001" type="checkbox" {% if i.is_active %}checked onclick="categorystatus({{i.id}},2)"{% else %}onclick="categorystatus({{i.id}},1)" {% endif %}  />

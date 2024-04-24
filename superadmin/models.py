@@ -123,6 +123,8 @@ class User(AbstractBaseUser):
 
 class Category(models.Model):
     title = models.TextField(null=True, blank=True)
+    icon = models.ImageField(upload_to='category', null=True, blank=True)
+    image = models.ImageField(upload_to='category', null=True, blank=True)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

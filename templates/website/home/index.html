@@ -435,296 +435,352 @@ RESERVATION
 <h2 class="special-heading-1">OUR MENU</h2>
 <div class="menu-total">
 <div class="hash-image">
-<a href="#Starter"><img src="{% static 'website/images/icons/hp-1-menu-icon-1.png' %}" alt="icon"></a>
-<a href="#Lunch"><img src="{% static 'website/images/icons/hp-1-menu-icon-2.png' %}" alt="icon"></a>
-<a href="#Dinner"><img src="{% static 'website/images/icons/hp-1-menu-icon-3.png' %}" alt="icon"></a>
-<a href="#Dessert"><img src="{% static 'website/images/icons/hp-1-menu-icon-4.png' %}" alt="icon"></a>
-<a href="#Alcoholic"><img src="{% static 'website/images/icons/hp-1-menu-icon-5.png' %}" alt="icon"></a>
-<a href="#Drinks"><img src="{% static 'website/images/icons/hp-1-menu-icon-6.png' %}" alt="icon"></a>
+
+	{% for i in category %}
+		<a href="#{{i.title}}"><img src="{{i.icon.url}}" alt="icon"></a>
+	{% endfor %}
 </div>
 <div id="menu-hp-1" class="owl-carousel owl-theme">
 
-<div class="menu-content item" data-thumb="Starter" data-hash="Starter">
-<div class="row">
-<div class="col-3 menu-title-total">
-<div class="menu-title">
-<img src="{% static 'website/images/hp-1-menu-start.jpg' %}" alt="menu-start">
-<span class="rotate">STARTER</span>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-start-1.jpg' %}" alt="start">
-</div>
-<div class="food-info">
-<span class="name">ONION AND NUTMEG SALAD .......................... $12</span>
-<span class="description">A crunchy salad featuring fresh onion and nutmeg.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-start-3.jpg' %}" alt="start">
-</div>
-<div class="food-info">
-<span class="name">CHERVIL AND GUAVA SALAD .......................... $20</span>
-<span class="description">A crisp salad featuring chervil and fresh guava.</span>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail menu-detail-1">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-start-2.jpg' %}" alt="start">
-</div>
-<div class="food-info">
-<span class="name">VINEGAR AND PRUNE SALAD .......................... $14</span>
-<span class="description">Vinegar and fresh prune served on a bed of lettuce.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-start-4.jpg' %}" alt="start">
-</div>
-<div class="food-info">
-<span class="name">GOAT AND MINT SALAD ...................................... $22</span>
-<span class="description">Goat and dried mint served on a bed of lettuce.</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!--<div class="menu-content item" data-thumb="Starter" data-hash="Starter">-->
+<!--<div class="row">-->
+<!--<div class="col-3 menu-title-total">-->
+<!--<div class="menu-title">-->
+<!--<img src="{% static 'website/images/hp-1-menu-start.jpg' %}" alt="menu-start">-->
+<!--<span class="rotate">STARTER</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-start-1.jpg' %}" alt="start">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">ONION AND NUTMEG SALAD .......................... $12</span>-->
+<!--<span class="description">A crunchy salad featuring fresh onion and nutmeg.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-start-3.jpg' %}" alt="start">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">CHERVIL AND GUAVA SALAD .......................... $20</span>-->
+<!--<span class="description">A crisp salad featuring chervil and fresh guava.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail menu-detail-1">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-start-2.jpg' %}" alt="start">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">VINEGAR AND PRUNE SALAD .......................... $14</span>-->
+<!--<span class="description">Vinegar and fresh prune served on a bed of lettuce.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-start-4.jpg' %}" alt="start">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">GOAT AND MINT SALAD ...................................... $22</span>-->
+<!--<span class="description">Goat and dried mint served on a bed of lettuce.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="menu-content item" data-thumb="Lunch" data-hash="Lunch">
-<div class="row">
-<div class="col-3 menu-title-total">
-<div class="menu-title">
-<img src="{% static 'website/images/hp-1-menu-lunch.jpg' %}" alt="menu-lunch">
-<span class="rotate">LUNCH</span>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-lunch-1.jpg' %}" alt="lunch">
-</div>
-<div class="food-info">
-<span class="name">STEAKHOUSE SIRLOIN ......................................... $25</span>
-<span class="description">Our 100% grass-fed hand-cut top sirloin is seared to lock in the juices.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-lunch-3.jpg' %}" alt="lunch">
-</div>
-<div class="food-info">
-<span class="name">SKINNY CARNIVORE ............................................. $30</span>
-<span class="description">Genoa salami, smoked prosciutto, barrel-aged Sriracha, bocconcini.</span>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail menu-detail-1">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-lunch-2.jpg' %}" alt="lunch">
-</div>
-<div class="food-info">
-<span class="name">SWEET POTATO FRIES ............................................ $18</span>
-<span class="description">Pork and fresh potato combined into chunky make it good.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-lunch-4.jpg' %}" alt="lunch">
-</div>
-<div class="food-info">
-<span class="name">CHIPOTLE BACON PENNE ................................. $25</span>
-<span class="description">Bacon, mushrooms, tomatoes, cheddar, chipotle seasoning, ...</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!--<div class="menu-content item" data-thumb="Lunch" data-hash="Lunch">-->
+<!--<div class="row">-->
+<!--<div class="col-3 menu-title-total">-->
+<!--<div class="menu-title">-->
+<!--<img src="{% static 'website/images/hp-1-menu-lunch.jpg' %}" alt="menu-lunch">-->
+<!--<span class="rotate">LUNCH</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-lunch-1.jpg' %}" alt="lunch">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">STEAKHOUSE SIRLOIN ......................................... $25</span>-->
+<!--<span class="description">Our 100% grass-fed hand-cut top sirloin is seared to lock in the juices.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-lunch-3.jpg' %}" alt="lunch">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">SKINNY CARNIVORE ............................................. $30</span>-->
+<!--<span class="description">Genoa salami, smoked prosciutto, barrel-aged Sriracha, bocconcini.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail menu-detail-1">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-lunch-2.jpg' %}" alt="lunch">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">SWEET POTATO FRIES ............................................ $18</span>-->
+<!--<span class="description">Pork and fresh potato combined into chunky make it good.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-lunch-4.jpg' %}" alt="lunch">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">CHIPOTLE BACON PENNE ................................. $25</span>-->
+<!--<span class="description">Bacon, mushrooms, tomatoes, cheddar, chipotle seasoning, ...</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="menu-content item" data-thumb="Dinner" data-hash="Dinner">
-<div class="row">
-<div class="col-3 menu-title-total">
-<div class="menu-title">
-<img src="{% static 'website/images/hp-1-menu-dinner.jpg' %}" alt="menu-dinner">
-<span class="rotate">DINNER</span>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dinner-1.jpg' %}" alt="dinner">
-</div>
-<div class="food-info">
-<span class="name">STEAK QUESADILLA ............................................... $30</span>
-<span class="description">Filled with seasoned grilled steak, fresh pico de gallo and Cheddar and Jack cheeses.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dinner-3.jpg' %}" alt="dinner">
-</div>
-<div class="food-info">
-<span class="name">RADIATORI AND PECAN SALAD ..................... $12</span>
-<span class="description">Canola oil and campanelle pasta served on a bed of lettuce.</span>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail menu-detail-1">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dinner-2.jpg' %}" alt="dinner">
-</div>
-<div class="food-info">
-<span class="name">MASHED POTATO ....................................................... $12</span>
-<span class="description">Cream, butter and garlic are frequently used in preparation and it is frequently.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dinner-4.jpg' %}" alt="dinner">
-</div>
-<div class="food-info">
-<span class="name">STEAKHOUSE CHILI NACHOS ......................... $40</span>
-<span class="description">Crisp tortilla chips heaped with our steak chili, Jack and Cheddar cheeses.</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!--<div class="menu-content item" data-thumb="Dinner" data-hash="Dinner">-->
+<!--<div class="row">-->
+<!--<div class="col-3 menu-title-total">-->
+<!--<div class="menu-title">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dinner.jpg' %}" alt="menu-dinner">-->
+<!--<span class="rotate">DINNER</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dinner-1.jpg' %}" alt="dinner">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">STEAK QUESADILLA ............................................... $30</span>-->
+<!--<span class="description">Filled with seasoned grilled steak, fresh pico de gallo and Cheddar and Jack cheeses.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dinner-3.jpg' %}" alt="dinner">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">RADIATORI AND PECAN SALAD ..................... $12</span>-->
+<!--<span class="description">Canola oil and campanelle pasta served on a bed of lettuce.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail menu-detail-1">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dinner-2.jpg' %}" alt="dinner">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">MASHED POTATO ....................................................... $12</span>-->
+<!--<span class="description">Cream, butter and garlic are frequently used in preparation and it is frequently.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dinner-4.jpg' %}" alt="dinner">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">STEAKHOUSE CHILI NACHOS ......................... $40</span>-->
+<!--<span class="description">Crisp tortilla chips heaped with our steak chili, Jack and Cheddar cheeses.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="menu-content item" data-thumb="Dessert" data-hash="Dessert">
-<div class="row">
-<div class="col-3 menu-title-total">
-<div class="menu-title">
-<img src="{% static 'website/images/hp-1-menu-dessert.jpg' %}" alt="menu-dessert">
-<span class="rotate">DESSERT</span>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dessert-1.jpg' %}" alt="dessert">
-</div>
-<div class="food-info">
-<span class="name">MANGO JELLY ............................................................ $20</span>
-<span class="description">The mango-jelly is made up of sponge cake and topped.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dessert-3.jpg' %}" alt="dessert">
-</div>
-<div class="food-info">
-<span class="name">SKY-HIGH MUD PIE ................................................. $22</span>
-<span class="description">Fudge-swirled mocha almond ice cream in a chocolate cookie crumb crust.</span>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail menu-detail-1">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dessert-2.jpg' %}" alt="dessert">
-</div>
-<div class="food-info">
-<span class="name">CHOCOLATE FLOURLESS TORTE ................... $10</span>
-<span class="description">A timeless recipe, naturally gluten-free, sint occaecat cupidatat.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-dessert-4.jpg' %}" alt="dessert">
-</div>
-<div class="food-info">
-<span class="name">DONUT WITH STRAWBERRY ............................... $15</span>
-<span class="description">These donuts are soft and cakey, but not dry in the slighte.</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!--<div class="menu-content item" data-thumb="Dessert" data-hash="Dessert">-->
+<!--<div class="row">-->
+<!--<div class="col-3 menu-title-total">-->
+<!--<div class="menu-title">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dessert.jpg' %}" alt="menu-dessert">-->
+<!--<span class="rotate">DESSERT</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dessert-1.jpg' %}" alt="dessert">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">MANGO JELLY ............................................................ $20</span>-->
+<!--<span class="description">The mango-jelly is made up of sponge cake and topped.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dessert-3.jpg' %}" alt="dessert">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">SKY-HIGH MUD PIE ................................................. $22</span>-->
+<!--<span class="description">Fudge-swirled mocha almond ice cream in a chocolate cookie crumb crust.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail menu-detail-1">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dessert-2.jpg' %}" alt="dessert">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">CHOCOLATE FLOURLESS TORTE ................... $10</span>-->
+<!--<span class="description">A timeless recipe, naturally gluten-free, sint occaecat cupidatat.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-dessert-4.jpg' %}" alt="dessert">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">DONUT WITH STRAWBERRY ............................... $15</span>-->
+<!--<span class="description">These donuts are soft and cakey, but not dry in the slighte.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="menu-content item" data-thumb="Alcoholic" data-hash="Alcoholic">
-<div class="row">
-<div class="col-3 menu-title-total">
-<div class="menu-title">
-<img src="{% static 'website/images/hp-1-menu-alcoholic.jpg' %}" alt="menu-alcoholic">
-<span class="rotate">ALCOHOLIC</span>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-alcoholic-1.jpg' %}" alt="alcoholic">
-</div>
-<div class="food-info">
-<span class="name">KING'S HYENA ROYALE ....................................... $20</span>
-<span class="description">Consequat ac felis donec et odio pellentesque diam volutpat.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-alcoholic-3.jpg' %}" alt="alcoholic">
-</div>
-<div class="food-info">
-<span class="name">ROYAL DAZZLE COLLINS .................................. $20</span>
-<span class="description">Morbi blandit cursus risus at ultrices tortor condimentum lacinia.</span>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail menu-detail-1">
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-alcoholic-2.jpg' %}" alt="alcoholic">
-</div>
-<div class="food-info">
-<span class="name">GRAPE WINE ................................................................ $35</span>
-<span class="description">Imperdiet sed euismod nisi porta lorem mollis congue mauris.</span>
-</div>
-</div>
-<div class="menu-inner">
-<div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-alcoholic-4.jpg' %}" alt="alcoholic">
-</div>
-<div class="food-info">
-<span class="name">LAUGHING PONY ROYALE ................................. $25</span>
-<span class="description">Diam phasellus vestibulum lorem sed vulputate sapien nec sagittis.</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!--<div class="menu-content item" data-thumb="Alcoholic" data-hash="Alcoholic">-->
+<!--<div class="row">-->
+<!--<div class="col-3 menu-title-total">-->
+<!--<div class="menu-title">-->
+<!--<img src="{% static 'website/images/hp-1-menu-alcoholic.jpg' %}" alt="menu-alcoholic">-->
+<!--<span class="rotate">ALCOHOLIC</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-alcoholic-1.jpg' %}" alt="alcoholic">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">KING'S HYENA ROYALE ....................................... $20</span>-->
+<!--<span class="description">Consequat ac felis donec et odio pellentesque diam volutpat.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-alcoholic-3.jpg' %}" alt="alcoholic">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">ROYAL DAZZLE COLLINS .................................. $20</span>-->
+<!--<span class="description">Morbi blandit cursus risus at ultrices tortor condimentum lacinia.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail menu-detail-1">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-alcoholic-2.jpg' %}" alt="alcoholic">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">GRAPE WINE ................................................................ $35</span>-->
+<!--<span class="description">Imperdiet sed euismod nisi porta lorem mollis congue mauris.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-alcoholic-4.jpg' %}" alt="alcoholic">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">LAUGHING PONY ROYALE ................................. $25</span>-->
+<!--<span class="description">Diam phasellus vestibulum lorem sed vulputate sapien nec sagittis.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
-<div class="menu-content item" data-thumb="Drinks" data-hash="Drinks">
+<!--<div class="menu-content item" data-thumb="Drinks" data-hash="Drinks">-->
+<!--<div class="row">-->
+<!--<div class="col-3 menu-title-total">-->
+<!--<div class="menu-title">-->
+<!--<img src="{% static 'website/images/hp-1-menu-drinks.jpg' %}" alt="menu-drinks">-->
+<!--<span class="rotate">DRINKS</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-drinks-1.jpg' %}" alt="drinks">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">SALTY IRISHMAN SHOT ....................................... $10</span>-->
+<!--<span class="description">Ullamcorper a lacus vestibulum sed arcu non odio.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-drinks-3.jpg' %}" alt="drinks">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">NAUGHTY KITTEN REVENGE ........................... $10</span>-->
+<!--<span class="description">Porttitor eget dolor morbi non arcu risus interdum velit euismod.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">-->
+<!--<div class="menu-detail menu-detail-1">-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-drinks-2.jpg' %}" alt="drinks">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">ORANGE JUICE ........................................................... $15</span>-->
+<!--<span class="description">Pretium lectus quam id leo in vitae turpis massa arcu risus.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<div class="food-images">-->
+<!--<img src="{% static 'website/images/hp-1-menu-drinks-4.jpg' %}" alt="drinks">-->
+<!--</div>-->
+<!--<div class="food-info">-->
+<!--<span class="name">SODA MAILMAN PUNCH ...................................... $10</span>-->
+<!--<span class="description">Nisl pretium fusce id velit ut tortor pretium viverra suspendisse.</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+	{% for i in category %}
+
+
+<div class="menu-content item" data-thumb="{{i.title}}" data-hash="{{i.title}}">
 <div class="row">
 <div class="col-3 menu-title-total">
 <div class="menu-title">
-<img src="{% static 'website/images/hp-1-menu-drinks.jpg' %}" alt="menu-drinks">
-<span class="rotate">DRINKS</span>
+<img src="{{i.image.url}}" alt="menu-drinks">
+<span class="rotate">{{i.title|upper}}</span>
 </div>
 </div>
 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -773,6 +829,9 @@ RESERVATION
 </div>
 </div>
 </div>
+
+	{% endfor %}
+
 </div>
 </div>
 <div class="view">
@@ -1046,7 +1105,31 @@ At
 <a href="#" id="back-to-top">
 <i class="zmdi zmdi-chevron-up"></i>
 </a>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script data-cfasync="false" src="{% static 'website/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script src="{% static 'website/ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' %}"></script>
 
@@ -1075,5 +1158,12 @@ At
 <script src="{% static 'website/vendor/datepicker/js/jquery-ui.min.js' %}"></script>
 
 <script src="{% static 'website/js/custom.js' %}"></script>
+
+<script>
+
+	$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>
 </body>
 </html>
