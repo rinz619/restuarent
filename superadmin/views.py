@@ -210,6 +210,14 @@ class categorycreate(LoginRequiredMixin, View):
 
 
         title = request.POST['title']
+        image = request.FILES.get('image')
+        icon = request.FILES.get('icon')
+
+        if image:
+            data.image=image
+        if icon:
+            print(icon)
+            data.icon=icon
         data.title=title
         data.save()
         return redirect('superadmin:categorylist')
