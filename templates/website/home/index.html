@@ -437,7 +437,7 @@ RESERVATION
 <div class="hash-image">
 
 	{% for i in category %}
-		<a href="#{{i.title}}"><img src="{{i.icon.url}}" alt="icon"></a>
+		<a href="#{{i.title}}"><img src="{{i.icon}}" alt="icon"></a>
 	{% endfor %}
 </div>
 <div id="menu-hp-1" class="owl-carousel owl-theme">
@@ -779,54 +779,64 @@ RESERVATION
 <div class="row">
 <div class="col-3 menu-title-total">
 <div class="menu-title">
-<img src="{{i.image.url}}" alt="menu-drinks">
+<img src="{{i.image}}" alt="menu-drinks">
 <span class="rotate">{{i.title|upper}}</span>
 </div>
 </div>
 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 <div class="menu-detail">
+	{% if i.menu.0 %}
 <div class="menu-inner">
 <div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-drinks-1.jpg' %}" alt="drinks">
+<img src="{{i.menu.0.image.url}}" alt="drinks">
 </div>
 <div class="food-info">
-<span class="name">SALTY IRISHMAN SHOT ....................................... $10</span>
-<span class="description">Ullamcorper a lacus vestibulum sed arcu non odio.</span>
+<span class="name">{{i.menu.0.title}} ....................................... ${{i.menu.0.price}}</span>
+<span class="description">{{i.menu.0.description}}</span>
 </div>
 </div>
+	{% endif %}
+	{% if i.menu.1 %}
 <div class="menu-inner">
 <div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-drinks-3.jpg' %}" alt="drinks">
+<img src="{{i.menu.1.image.url}}" alt="drinks">
 </div>
 <div class="food-info">
-<span class="name">NAUGHTY KITTEN REVENGE ........................... $10</span>
-<span class="description">Porttitor eget dolor morbi non arcu risus interdum velit euismod.</span>
+<span class="name">{{i.menu.1.title}} ....................................... ${{i.menu.1.price}}</span>
+<span class="description">{{i.menu.1.description}}</span>
 </div>
 </div>
+	{% endif %}
 </div>
 </div>
 <div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
 <div class="menu-detail menu-detail-1">
+	{% if i.menu.2 %}
 <div class="menu-inner">
 <div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-drinks-2.jpg' %}" alt="drinks">
+<img src="{{i.menu.2.image.url}}" alt="drinks">
 </div>
 <div class="food-info">
-<span class="name">ORANGE JUICE ........................................................... $15</span>
-<span class="description">Pretium lectus quam id leo in vitae turpis massa arcu risus.</span>
+<span class="name">{{i.menu.2.title}} ....................................... ${{i.menu.2.price}}</span>
+<span class="description">{{i.menu.2.description}}</span>
 </div>
 </div>
+	{% endif %}
+	{% if i.menu.3 %}
 <div class="menu-inner">
 <div class="food-images">
-<img src="{% static 'website/images/hp-1-menu-drinks-4.jpg' %}" alt="drinks">
+<img src="{{i.menu.3.image.url}}" alt="drinks">
 </div>
 <div class="food-info">
-<span class="name">SODA MAILMAN PUNCH ...................................... $10</span>
-<span class="description">Nisl pretium fusce id velit ut tortor pretium viverra suspendisse.</span>
+<span class="name">{{i.menu.3.title}} ....................................... ${{i.menu.3.price}}</span>
+<span class="description">{{i.menu.3.description}}</span>
 </div>
 </div>
+	{% endif %}
 </div>
 </div>
+
+
 </div>
 </div>
 

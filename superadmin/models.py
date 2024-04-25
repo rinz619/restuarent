@@ -1,6 +1,6 @@
 from django.db import models
 # from django.contrib.postgres.fields import ArrayField
-# from rest_framework import serializers
+from rest_framework import serializers
 # from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -149,9 +149,31 @@ class Banner(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
+class Gallery(models.Model):
+    image = models.FileField(upload_to='gallery', null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class Testimonials(models.Model):
     user = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class menuincategory(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        # fields = "__all__"
+        fields = ['id']
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['title'] = instance.title
+        data['icon'] = instance.icon.url
+        data['image'] = instance.image.url
+        data['menu'] = Menu.objects.filter(is_active=True,category=instance.id)
+        return data

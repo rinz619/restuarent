@@ -1,3 +1,4 @@
+{% load static %}
 <input type="hidden" id="url" name="url" value="{{request.path}}">
 <input type="hidden" id="page" name="page" value="{{page}}">
 		 {% if messages %}
@@ -13,28 +14,37 @@
                                     <thead>
                                         <tr>
                                             <th>Sl No</th>
-                                            <th>Invoice No</th>
-                                            <th>Customer</th>
-                                            <th>Date</th>
-                                            <th>Amount</th>
+                                            <th>gallery</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    {% if datas %}
+                                     {% if datas %}
                                         {% for i in datas %}
                                         <tr>
                                             <td>{{forloop.counter0|add:datas.start_index}}</td>
-                                            <td>#INVC_{{i.id|stringformat:"04d"}}</td>
-                                            <td>{{i.customer.name}}</td>
-                                            <td>{{i.date}}</td>
-                                            <td>{{i.amount}}</td>
-                                            <td>{{i.get_status_display}}</td>
-                                            
                                             <td>
 
-                                                <a class="btn btn-info btn-sm mb-1" href="{% url 'superadmin:invoiceedit' i.id %}"><i class="side-menu__icon fe fe-edit"></i></a>
+                                                <ul id="" style="display: flex;">
+                                                    <li class="img-td m-2" data-responsive="{{i.image.url}}" data-src="{{i.image.url}}">
+                                                        <a href="{{i.image.url}}" target="_blank">
+                                                            <img class="img-responsive br-5" src="{{i.image.url}}" alt="Thumb-1">
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+
+                                            </td>
+                                            <td>
+                                               <div class="material-switch">
+                                                     <input id="someSwitchOptionSuccess{{i.id}}" name="someSwitchOption001" type="checkbox" {% if i.is_active %}checked onclick="bannerstatus({{i.id}},2)"{% else %}onclick="bannerstatus({{i.id}},1)" {% endif %}  />
+                                                     <label for="someSwitchOptionSuccess{{i.id}}" class="label-success"></label>
+                                                 </div>
+                                            </td>
+                                            <td>
+
+                                                <a class="btn btn-info btn-sm mb-1" href="{% url 'superadmin:galleryedit' i.id %}"><i class="side-menu__icon fe fe-edit"></i></a>
 
                                                 <a class="btn btn-danger btn-sm mb-1" href="javascript:void(0)" onclick="delete_modal({{i.id}})"><i class="side-menu__icon fe fe-trash" ></i></a>
 
@@ -43,7 +53,7 @@
                                     {% endfor %}
                                     {% else %}
                                     <tr>
-                                        <td colspan="4" align="center">
+                                        <td colspan="6" align="center">
                                             No Data
                                         </td>
                                     </tr>
@@ -52,6 +62,8 @@
                                     </tbody>
                                 </table>
 
+
+
 <div class="card-body">
 
     Showing {{ datas.start_index }}-{{ datas.end_index }} of {{ datas.paginator.count }}
@@ -59,7 +71,7 @@
     <ul class="pagination">
         {% if datas.has_previous %}
         <li class="page-item page-prev">
-            <a class="page-link" href="javascript:void(0)" onclick="return filterdata('{{ datas.previous_page_number }}');" tabindex="-1">Prev</a>
+            <a class="page-link" href="javascript:void(0)" onclick="return filterbanner('{{ datas.previous_page_number }}');" tabindex="-1">Prev</a>
         </li>
         {% else %}
         <li class="page-item page-prev">
@@ -71,12 +83,12 @@
         <li class="page-item active"><span class="page-link">
             {{ i }}</span><span class="sr-only">(current)</span></li>
         {% else %}
-        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="return filterdata('{{ i }}');">{{i}}</a></li>
+        <li class="page-item"><a class="page-link" href="javascript:void(0)" onclick="return filterbanner('{{ i }}');">{{i}}</a></li>
           {% endif %}
         {% endfor %}
         {% if datas.has_next %}
         <li class="page-item page-next">
-            <a class="page-link" href="javascript:void(0)" onclick="return filterdata('{{ datas.next_page_number }}');">Next</a>
+            <a class="page-link" href="javascript:void(0)" onclick="return filterbanner('{{ datas.next_page_number }}');">Next</a>
         </li>
          {% else %}
         <li class="page-item page-next"><span class="page-link">Next</span></li>

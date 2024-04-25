@@ -136,6 +136,85 @@ class bannercreate(LoginRequiredMixin, View):
 
 
 
+# Banner module start
+class gallerylist(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+        conditions = Q()
+
+        if is_ajax(request):
+            page = request.GET.get('page', 1)
+            context['page'] = page
+            status = request.GET.get('status')
+            type = request.GET.get('type')
+            if type == '1':
+                id = request.GET.get('id')
+                vl = request.GET.get('vl')
+                cat = Gallery.objects.get(id=id)
+                if vl == '2':
+                    cat.is_active = False
+                else:
+                    cat.is_active = True
+                cat.save()
+                messages.info(request, 'Successfully Updated')
+            elif type == '2':
+                id = request.GET.get('id')
+                Gallery.objects.filter(id=id).delete()
+                messages.info(request, 'Successfully Deleted')
+            if status:
+                conditions &= Q(is_active=status)
+            data_list = Gallery.objects.filter(conditions).order_by('-id')
+            paginator = Paginator(data_list, 15)
+
+            try:
+                datas = paginator.page(page)
+            except PageNotAnInteger:
+                datas = paginator.page(1)
+            except EmptyPage:
+                datas = paginator.page(paginator.num_pages)
+            context['datas'] = datas
+            template = loader.get_template('superadmin/gallery/gallery-table.html')
+            html_content = template.render(context, request)
+            return JsonResponse({'status': True, 'template': html_content})
+
+        data = Gallery.objects.all().order_by('-id')
+        p = Paginator(data, 15)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = p.page(page_num)
+        except EmptyPage:
+            page = p.page(1)
+        context['datas'] = page
+        context['page'] = page_num
+        return renderhelper(request, 'gallery', 'gallery-view', context)
+
+class gallerycreate(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+        try:
+            context['data'] = Gallery.objects.get(id=id)
+        except:
+            context['data'] = None
+        return renderhelper(request, 'gallery', 'gallery-create', context)
+
+    def post(self, request, id=None):
+        try:
+            data = Gallery.objects.get(id=id)
+            messages.info(request, 'Successfully Updated')
+        except:
+            data = Gallery()
+            messages.info(request, 'Successfully Added')
+
+
+        image = request.FILES.get('imagefile')
+        data.image=image
+        data.save()
+        return redirect('superadmin:gallerylist')
+
+    # Banner module end
+
+
+
 # Category module start
 class categorylist(LoginRequiredMixin, View):
     def get(self, request, id=None):
