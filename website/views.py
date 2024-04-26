@@ -22,7 +22,15 @@ class index(View):
     def get(self, request):
         context = {}
         context['banners'] = Banner.objects.filter(is_active=True).order_by('?')[:1]
+        context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')[:6]
         category = Category.objects.filter(is_active=True).order_by('id')
         cate = menuincategory(category,many=True)
         context['category'] = cate.data
         return renderhelper(request, 'home', 'index',context)
+
+class galleryimages(View):
+    def get(self, request):
+        context = {}
+        context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')
+        return renderhelper(request, 'gallery', 'gallery-view',context)
+

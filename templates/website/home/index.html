@@ -867,80 +867,27 @@ RESERVATION
 <h2 class="special-heading-1">OUR GALLERY</h2>
 <div class="row">
 
+{% for i in gallery %}
+
 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
 <div class="gallery-detail">
-<img src="{% static 'website/images/hp-1-gallery-1.jpg' %}" alt="gallery-1">
+<img src="{{i.image.url}}" alt="gallery-1">
 <div class="overlay"></div>
 <div class="gallery-zoom">
-<a href="{% static 'website/images/hp-1-gallery-1.jpg' %}" data-fancybox="gallery" class="gallery-elements">
+<a href="{{i.image.url}}" data-fancybox="gallery" class="gallery-elements">
 <i class="zmdi zmdi-search"></i>
 </a>
 </div>
 </div>
 </div>
 
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-<div class="gallery-detail">
-<img src="{% static 'website/images/hp-1-gallery-2.jpg' %}" alt="gallery-2">
-<div class="overlay"></div>
-<div class="gallery-zoom">
-<a href="{% static 'website/images/hp-1-gallery-2.jpg' %}" data-fancybox="gallery" class="gallery-elements">
-<i class="zmdi zmdi-search"></i>
-</a>
-</div>
-</div>
-</div>
 
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-<div class="gallery-detail">
-<img src="{% static 'website/images/hp-1-gallery-3.jpg' %}" alt="gallery-3">
-<div class="overlay"></div>
-<div class="gallery-zoom">
-<a href="{% static 'website/images/hp-1-gallery-3.jpg' %}" data-fancybox="gallery" class="gallery-elements">
-<i class="zmdi zmdi-search"></i>
-</a>
-</div>
-</div>
-</div>
+{% endfor %}
 
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-<div class="gallery-detail">
-<img src="{% static 'website/images/hp-1-gallery-4.jpg' %}" alt="gallery-4">
-<div class="overlay"></div>
-<div class="gallery-zoom">
-<a href="{% static 'website/images/hp-1-gallery-4.jpg' %}" data-fancybox="gallery" class="gallery-elements">
-<i class="zmdi zmdi-search"></i>
-</a>
-</div>
-</div>
-</div>
 
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-<div class="gallery-detail">
-<img src="{% static 'website/images/hp-1-gallery-5.jpg' %}" alt="gallery-5">
-<div class="overlay"></div>
-<div class="gallery-zoom">
-<a href="{% static 'website/images/hp-1-gallery-5.jpg' %}" data-fancybox="gallery" class="gallery-elements">
-<i class="zmdi zmdi-search"></i>
-</a>
-</div>
-</div>
-</div>
-
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-<div class="gallery-detail">
-<img src="{% static 'website/images/hp-1-gallery-6.jpg' %}" alt="gallery-6">
-<div class="overlay"></div>
-<div class="gallery-zoom">
-<a href="{% static 'website/images/hp-1-gallery-6.jpg' %}" data-fancybox="gallery" class="gallery-elements">
-<i class="zmdi zmdi-search"></i>
-</a>
-</div>
-</div>
-</div>
 </div>
 <div class="view">
-<a href="gallery-grid-v1.html" class="au-btn au-btn-red btn-medium">VIEW MORE</a>
+<a href="{% url 'website:galleryimages' %}" class="au-btn au-btn-red btn-medium">VIEW MORE</a>
 </div>
 </div>
 </div>
