@@ -40,7 +40,17 @@ class menuitems(View):
         # context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')
         return renderhelper(request, 'menu', 'menu',context)
 
+class contactus(View):
+    def get(self, request):
+        context = {}
+        return renderhelper(request, 'contact', 'contactus',context)
+
 
 def gotomenu(request):
     item = request.GET['item']
     return JsonResponse({'item':item})
+
+from django.shortcuts import render
+
+def error_404(request, exception):
+    return render(request, '404.html', status=404)

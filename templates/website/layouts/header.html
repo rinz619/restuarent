@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+
+<meta charset="utf-8">
+<title>Homepages 1</title>
+<meta name="description" content>
+<meta name="author" content>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="shortcut icon" href="{% static 'website/favicon.png' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/fonts/font-awesome-5/css/fontawesome-all.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/josefinsans-font.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/librebaskerville-font.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/satisfy-font.css' %}">
+
+
+<link rel="stylesheet" href="{% static 'website/vendor/bootrap/css/bootstrap.min.css' %}" />
+
+<link rel="stylesheet" href="{% static 'website/vendor/owl/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'website/vendor/owl/css/owl.theme.default.min.css' %}">
+<link rel="stylesheet" href="{% static 'website/vendor/owl/css/animate.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/vendor/revolution/css/settings.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/vendor/revolution/css/layers.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'website/vendor/revolution/css/navigation.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/vendor/fancybox-master/css/jquery.fancybox.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'website/vendor/datepicker/css/jquery-ui.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'website/css/style.css' %}" />
+</head>
+<body class="homepages-1">
+
+<div class="images-preloader">
+<div id="preloader_1 spinner1" class="spinner1 rectangle-bounce">
+<div class="double-bounce1"></div>
+<div class="double-bounce2"></div>
+</div>
+</div>
+<header class="header">
+
+<div class="show-desktop-header header-hp-1">
+<div id="js-navbar-fixed" class="menu-desktop">
+<div class="container menu-desktop-inner">
+
+<div class="logo">
+<a href="/"><img src="{% static 'website/images/icons/logo-white.png' %}" alt="logo"></a>
+</div>
+
+<nav class="main-menu">
+<ul>
+<li class="menu-item">
+<a href="/" class="current">
+HOME
+</a>
+
+</li>
+<li class="menu-item">
+<a href="javascript:void(0)">
+MENU
+</a>
+<ul class="sub-menu">
+	{% for i in category %}
+<li><a href="{% url 'website:menuitems' i.title %}">{{i.title}}</a></li>
+	{% endfor %}
+
+</ul>
+</li>
+<li class="menu-item">
+<a href="about.html">
+PAGES
+</a>
+<ul class="sub-menu">
+<li><a href="about.html">About Us</a></li>
+<li><a href="our-team.html">Our Team</a></li>
+<li>
+<a href="events.html">Events</a>
+<ul class="sub-menu menu-levels">
+<li><a href="events-details.html">Events Details</a></li>
+</ul>
+</li>
+<li>
+<a href="reservation-form-v1.html">Reservation Form</a>
+<ul class="sub-menu menu-levels">
+<li><a href="reservation-form-v1.html">Reservation Form v1</a></li>
+<li><a href="reservation-form-v2.html">Reservation Form v2</a></li>
+<li><a href="reservation-form-v3.html">Reservation Form v3</a></li>
+</ul>
+</li>
+<li><a href="404.html">404</a></li>
+<li><a href="comming-soon.html">Comming Soon</a></li>
+</ul>
+</li>
+<li class="menu-item">
+<a href="{% url 'website:galleryimages' %}">
+GALLERY
+</a>
+<ul class="sub-menu">
+
+</ul>
+</li>
+<li class="menu-item">
+<a href="blog-grid-v1.html">
+BLOG
+</a>
+<ul class="sub-menu">
+<li><a href="blog-grid-v1.html">Blog Grid v1</a></li>
+<li><a href="blog-grid-v2.html">Blog Grid v2</a></li>
+<li><a href="blog-list.html">Blog List</a></li>
+<li><a href="blog-sidebar.html">Blog Sidebar</a></li>
+<li><a href="blog-details.html">Blog Details</a></li>
+</ul>
+</li>
+<li class="menu-item">
+<a href="{% url 'website:contactus' %}">
+CONTACT
+</a>
+<ul class="sub-menu">
+
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+
+<div id="js-navbar-mb-fixed" class="show-mobile-header mobile-header-bg-black">
+
+<div class="mobile-top-header style-mobile-top-header">
+<div class="logo-mobile">
+<a href="index-2.html"><img src="{% static 'website/images/icons/logo-white.png' %}" alt="logo"></a>
+</div>
+<button class="hamburger hamburger--spin hidden-tablet-landscape-up" id="toggle-icon">
+<span class="hamburger-box">
+<span class="hamburger-inner"></span>
+</span>
+</button>
+</div>
+
+<div class="au-navbar-mobile navbar-mobile-1">
+<div class="au-navbar-menu">
+<ul>
+<li class="drop">
+<a class="drop-link" href="#">
+HOME
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a href="index-2.html">Home Page 1</a></li>
+<li><a href="index2.html">Home Page 2</a></li>
+<li><a href="index3.html">Home Page 3</a></li>
+<li><a href="index4.html">Home Page 4</a></li>
+<li><a href="index5.html">Home Page 5</a></li>
+<li><a href="index6.html">Home Page 6</a></li>
+</ul>
+</li>
+<li class="drop">
+<a class="drop-link" href="#">
+MENU
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a href="menu-v1.html">Menu v1</a></li>
+<li><a href="menu-starter.html">Menu Starter</a></li>
+<li><a href="menu-lunch.html">Menu Lunch</a></li>
+<li><a href="menu-dinner.html">Menu Dinner</a></li>
+<li><a href="menu-v2.html">Menu v2</a></li>
+</ul>
+</li>
+<li class="drop">
+<a class="drop-link" href="#">
+PAGES
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a href="about.html">About Us</a></li>
+<li><a href="our-team.html">Our Team</a></li>
+<li class="drop">
+<a class="drop-link" href="#">
+Events
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a class="drop-menu-inner" href="events.html">Events</a></li>
+<li><a class="drop-menu-inner" href="events-details.html">Events Details</a></li>
+</ul>
+</li>
+<li class="drop">
+<a class="drop-link" href="#">
+Reservation Form
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a class="drop-menu-inner" href="reservation-form-v1.html">Reservation Form v1</a></li>
+<li><a class="drop-menu-inner" href="reservation-form-v2.html">Reservation Form v2</a></li>
+<li><a class="drop-menu-inner" href="reservation-form-v3.html">Reservation Form v3</a></li>
+</ul>
+</li>
+<li><a href="404.html">404</a></li>
+<li><a href="comming-soon.html">Comming Soon</a></li>
+</ul>
+</li>
+<li class="drop">
+<a class="drop-link" href="#">
+GALLERY
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a href="gallery-grid-v1.html">Gallery Grid v1</a></li>
+<li><a href="gallery-grid-v2.html">Gallery Grid v2</a></li>
+<li><a href="gallery-wall.html">Gallery Wall</a></li>
+</ul>
+</li>
+<li class="drop">
+<a class="drop-link" href="#">
+BLOG
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a href="blog-grid-v1.html">Blog Grid v1</a></li>
+<li><a href="blog-grid-v2.html">Blog Grid v2</a></li>
+<li><a href="blog-list.html">Blog List</a></li>
+<li><a href="blog-sidebar.html">Blog Sidebar</a></li>
+<li><a href="blog-details.html">Blog Details</a></li>
+</ul>
+</li>
+<li class="drop">
+<a class="drop-link" href="#">
+CONTACT Us
+<span class="arrow">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</a>
+<ul class="drop-menu bottom-right">
+<li><a href="contact-us-v1.html">Contact Us v1</a></li>
+<li><a href="contact-us-v2.html">Contact Us v2</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</header>
