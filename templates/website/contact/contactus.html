@@ -1,0 +1,118 @@
+{% include 'website/layouts/header.html' %}
+{% load static %}
+
+<div class="page-content">
+
+<section class="breadcrumb-events breadcrumb-section section-box" style="background-image: url({% static 'website/images/events-bc.jpg' %})">
+<div class="container">
+<div class="breadcrumb-inner">
+<h1>Contact Us</h1>
+<span class="breadcrumbs-text">Volutpat odio facilisis mauris sit. Consectetur adipiscing elit pellentesque habitant morbi tristique.</span>
+</div>
+</div>
+</section>
+
+
+<section class="contact-v2-section section-box">
+<div class="container">
+<div class="row">
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+<div class="contact-content">
+<h3>Contact Info</h3>
+<p>Feugiat nisl pretium fusce id velit ut. Vivamus at augue eget arcu dictum varius duis at. Commodo nulla facilisi nullam vehicula ipsum a arcu. Sed sed risus pretium quam vulputate.</p>
+<div class="row">
+<div class="col-6">
+<div class="contact-info contact-address">
+<i class="zmdi zmdi-pin"></i>
+<h4>Address Location</h4>
+<span>Reon, 1535 Broadway, New York</span>
+</div>
+</div>
+<div class="col-6">
+<div class="contact-info">
+<i class="zmdi zmdi-time"></i>
+<h4>Open Time</h4>
+<div class="time">
+<div class="time-inner">
+<span class="day">Lunch:</span>
+<span class="hour">Everyday</span>
+</div>
+<div class="time-inner">
+<span class="day">Dinner: Mon- Thu </span>
+<span class="hour">18:00-21:30</span>
+</div>
+<div class="time-inner">
+<span class="day">Dinner: Fri- Sun</span>
+<span class="hour">19:00-21:00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6">
+<div class="contact-info">
+<i class="zmdi zmdi-phone"></i>
+<h4>Phone Number</h4>
+<span><a href="tel:11112229999">+1 111-222-9999</a></span>
+<span><a href="tel:16667779999">+1 666-777-9999</a></span>
+</div>
+</div>
+<div class="col-6">
+<div class="contact-info contact-email">
+<i class="zmdi zmdi-email"></i>
+<h4>Email Address</h4>
+<span><a href="https://freebw.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e6d41405a4f4d5a6e4b564f435e424b004d4143">[email&#160;protected]</a></span>
+<span><a href="https://freebw.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c38aada5ac83a6bba2aeb3afa6eda0acae">[email&#160;protected]</a></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+<div class="quote-form">
+<h3>Contact Form</h3>
+<p>Egestas fringilla phasellus faucibus scelerisq eleifend donec pretium vulputate.</p>
+<form class="form-contact js-contact-form" method="POST" action="https://freebw.com/templates/reon/includes/contact-form.php">
+<div class="row">
+<div class="col-12">
+<div class="form-input">
+<input type="text" name="name" placeholder="Your Name" required>
+</div>
+</div>
+<div class="col-12">
+<div class="form-input">
+<input type="email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" name="email" placeholder="Your Email">
+</div>
+</div>
+<div class="col-12">
+<div class="form-input">
+<input type="text" name="phone" placeholder="Phone Number" required>
+</div>
+</div>
+<div class="col-12">
+<div class="form-input">
+<input type="text" name="subject" placeholder="Subject" required>
+</div>
+</div>
+<div class="col-12 form-bottom">
+<input type="submit" class="end-quote-1 au-btn au-btn-red btn-small" name="quote" value="SUBMIT">
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="map-section">
+<div class="google-map-section">
+<div class="map-wrapper js-google-map" data-makericon="images/icons/map-icon.png" data-makers="[[&quot;REON&quot;, &quot;Now that you visited our website,<br> how about checking out our office too?&quot;, 40.758913, -73.986228]]">
+<div class="map__holder js-map-holder" id="map"></div>
+</div>
+</div>
+</section>
+
+</div>
+
+{% include 'website/layouts/footer.html' %}

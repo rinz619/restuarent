@@ -1,0 +1,55 @@
+{% include 'website/layouts/header.html' %}
+{% load static %}
+
+<div class="page-content">
+
+<section class="breadcrumb-gallery-grid-v1 breadcrumb-section section-box" style="background-image: url({% static 'website/images/gallery-grid-v1-bc.jpg' %})">
+<div class="container">
+<div class="breadcrumb-inner">
+<h1>Gallery Grid</h1>
+<span class="breadcrumbs-text">Volutpat odio facilisis mauris sit. Consectetur adipiscing elit pellentesque habitant morbi tristique.</span>
+</div>
+</div>
+</section>
+
+
+
+<section class="gallery-section-v1 gallery-hp-1 section-box">
+<div class="container">
+<div class="gallery-content">
+<div class="row">
+
+
+{% for i in gallery %}
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+<div class="gallery-detail">
+<img src="{{i.image.url}}" alt="gallery-9">
+<div class="overlay"></div>
+<div class="gallery-zoom">
+<a href="{{i.image.url}}" data-fancybox="gallery" class="gallery-elements">
+<i class="zmdi zmdi-search"></i>
+</a>
+</div>
+</div>
+</div>
+    {% endfor %}
+
+</div>
+</div>
+</div>
+</section>
+
+  <section class="breadcrumb-gallery-grid-v1 breadcrumb-section section-box" style="background-image: url(images/gallery-grid-v1-bc.jpg)">
+<div class="container">
+<div class="breadcrumb-inner">
+<h1>Gallery Grid</h1>
+<span class="breadcrumbs-text">Volutpat odio facilisis mauris sit. Consectetur adipiscing elit pellentesque habitant morbi tristique.</span>
+</div>
+</div>
+</section>
+
+
+
+</div>
+
+{% include 'website/layouts/footer.html' %}

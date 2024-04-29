@@ -20,6 +20,8 @@ from django.views.generic.base import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.conf.urls import handler404
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +30,7 @@ urlpatterns = [
     path('superadmin', RedirectView.as_view(url='/superadmin/')),
 ]
 
+handler404 = views.error_404
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
