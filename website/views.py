@@ -33,4 +33,14 @@ class galleryimages(View):
         context = {}
         context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')
         return renderhelper(request, 'gallery', 'gallery-view',context)
+class menuitems(View):
+    def get(self, request,item):
+        context = {}
+        context['menu'] = Menu.objects.filter(category__title__icontains=item)
+        # context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')
+        return renderhelper(request, 'menu', 'menu',context)
 
+
+def gotomenu(request):
+    item = request.GET['item']
+    return JsonResponse({'item':item})

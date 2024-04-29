@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="{% static 'website/vendor/owl/css/owl.theme.default.min.css' %}">
 <link rel="stylesheet" href="{% static 'website/vendor/owl/css/animate.css' %}">
 
+
 <link rel="stylesheet" type="text/css" href="{% static 'website/vendor/revolution/css/settings.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'website/vendor/revolution/css/layers.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'website/vendor/revolution/css/navigation.css' %}">
@@ -34,8 +35,7 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'website/vendor/datepicker/css/jquery-ui.min.css' %}">
 
-<link rel="stylesheet" href="{% static 'website/css/style.css' %}" />
-</head>
+<link rel="stylesheet" href="{% static 'website/css/style.css' %}" /></head>
 <body class="homepages-1">
 
 <div class="images-preloader">
@@ -67,10 +67,11 @@ HOME
 MENU
 </a>
 <ul class="sub-menu">
-	{% for i in category %}
-<li><a href="{% url 'website:menuitems' i.title %}">{{i.title}}</a></li>
-	{% endfor %}
-
+<li><a href="menu-v1.html">Menu v1</a></li>
+<li><a href="menu-starter.html">Menu Starter</a></li>
+<li><a href="menu-lunch.html">Menu Lunch</a></li>
+<li><a href="menu-dinner.html">Menu Dinner</a></li>
+<li><a href="menu-v2.html">Menu v2</a></li>
 </ul>
 </li>
 <li class="menu-item">
@@ -268,300 +269,69 @@ CONTACT Us
 </header>
 <div class="page-content">
 
-<section class="">
-
-	<div id="videoWrapper" >
-
-  <video style="width:100%; height:100%; max-height: 100vh; min-height: 100vh;object-fit: cover;" poster="{{banners.image.url}}" playsinline autoplay muted loop>
-		<source src="{{banners.0.image.url}}" type="video/mp4">
-
-	</video>
-	<div class="caption">
-    <div class="">
-     <div style="font-family: satisfy, cursive;    visibility: inherit;
-    transition: none 0s ease 0s;
-    text-align: center;
-    line-height: 50px;
-    border-width: 0px;
-    margin: 0px;
-    padding: 0px;
-    letter-spacing: 0px;
-    font-weight: 400;
-    font-size: 70px;
-    white-space: normal;
-    min-height: 0px;
-    min-width: 1200px;
-    max-height: none;
-    max-width: 1200px;
-    color: rgb(242, 242, 242);
-    opacity: 1;
-    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-    transform-origin: 50% 50% 0px;" class="" data-frames="[{&quot;delay&quot;:500,&quot;speed&quot;:1000,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:-20px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-fontsize="['70', '70', '70', '70']" data-lineheight="['50', '50', '50', '50']" data-color="#f2f2f2" data-textAlign="['center', 'center', 'center', 'center']" data-x="['center','center','center','center']" data-y="['middle','middle','middle','middle']" data-hoffset="['0', '0', '0', '0']" data-voffset="['-74', '-75', '-85', '-60']" data-width="['1200', '770', '800', '800']" data-whitespace="normal" data-basealign="slide" data-responsive_offset="off">
-Welcome to Reon Place
-</div>
-<!--<div style="    font-family: josefin sans, sans-serif;visibility: inherit;-->
-<!--    transition: none 0s ease 0s;-->
-<!--    text-align: center;-->
-<!--    line-height: 27px;-->
-<!--    border-width: 0px;-->
-<!--    margin: 0px;-->
-<!--    padding: 0px;-->
-<!--    letter-spacing: 0px;-->
-<!--    font-weight: 400;-->
-<!--    font-size: 20px;-->
-<!--    white-space: normal;-->
-<!--    min-height: 0px;-->
-<!--    min-width: 700px;-->
-<!--    max-height: none;-->
-<!--    max-width: 700px;-->
-<!--    color: rgb(242, 242, 242);-->
-<!--    opacity: 1;-->
-<!--    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);-->
-<!--    transform-origin: 50% 50% 0px;" class="" data-frames="[{&quot;delay&quot;:1000,&quot;speed&quot;:1000,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:-20px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-fontsize="['20', '22', '30', '35']" data-lineheight="['27', '30', '40', '50']" data-color="#f2f2f2" data-textAlign="['center', 'center', 'center', 'center']" data-x="['center','center','center','center']" data-y="['middle','middle','middle','middle']" data-hoffset="['0', '0', '0', '0']" data-voffset="['0', '0', '0', '0']" data-width="['700', '700', '650', '800']" data-whitespace="normal" data-basealign="slide" data-responsive_offset="off">-->
-<!--ROMANTIC WINES TO FALL IN LOVE WITH-->
+<section class="breadcrumb-our-team breadcrumb-menu-section section-box" style="background-image: url({% static 'website/images/our-team-bc.jpg' %})">
+<div class="container">
+<div class="breadcrumb-inner">
+<h1>Starter</h1>
+<!--<div class="menu">-->
+<!--<div class="menu-inner">-->
+<!--<img src="images/icons/menu-starter-bc-1.png" alt="menu-starter-1">-->
+<!--<h4>SALAD</h4>-->
 <!--</div>-->
-<!-- <a href="#" target="_self" class="tp-caption tp-resizeme au-btn btn-medium btn-resize-slider-1 au-btn-red" data-frames="[{&quot;delay&quot;:1500,&quot;speed&quot;:1000,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:20px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-x="['center','center','center','center']" data-y="['middle','middle','middle','middle']" data-hoffset="['0', '0', '0', '0']" data-voffset="['99', '100', '108', '100']" data-basealign="slide" data-responsive_offset="off">
-RESERVATION
-</a> -->
-    </div>
-  </div>
-
-	<div class="to_btm">
-		<a href="#story-hp-1" class="to_btm_ic scroll-slider1 flex-c trans-04"><span></span></a>
-		<!-- <a href="#story-hp-1" class="scroll-slider1 flex-c trans-04"></a> -->
-
-	</div>
-
-
+<!--<div class="menu-inner">-->
+<!--<img src="images/icons/menu-starter-bc-2.png" alt="menu-starter-2">-->
+<!--<h4>CURRY</h4>-->
+<!--</div>-->
+<!--<div class="menu-inner">-->
+<!--<img src="images/icons/menu-starter-bc-3.png" alt="menu-starter-3">-->
+<!--<h4>POTATO</h4> -->
+<!--</div>-->
 </div>
-<!-- <div class="wrap-scroll-slider1 display-flex-center">
-<a href="#story-hp-1" class="scroll-slider1 flex-c trans-04"></a>
-</div> -->
+</div>
+</div>
 </section>
 
 
-<section class="story-hp-1 section-box" id="story-hp-1">
+<section class="salad-section section-box">
+
 <div class="container">
-<div class="row">
-<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-<div class="story-content">
-<h3 class="special-heading">Discover</h3>
-<h2 class="special-heading-1">OUR STORY</h2>
-<p>“Cras sed felis eget velit aliquet. Etiam dignissim diam lobortis scelerisque fermentum. Eu non diam phasellus vestibulum lore risus ultricies tristique varius quam quis hendrerit dolor.”</p>
-<div class="story-quote">
-<img src="{% static 'website/images/hp-1-story-3.jpg' %}" alt="story">
+<div class="menu-heading">
+<img src="{% static 'website/images/icons/menu-starter-icon-1.png' %}" alt="salad">
+<h2>SALAD</h2>
+</div>
+<div id="salad-section" class="owl-carousel owl-theme">
+<div class="item">
+
+    {% for i in menu %}
+
+<div class="item-content">
+<div class="image">
+<img src="{% static 'website/images/menu-starter-salad-1.jpg' %}" alt="salad">
+</div>
 <div class="info">
-<span class="name">FRANK REYES</span>
-<span class="job">Master Chef</span>
+<h5>Peanut And Ugli Fruit Salad</h5>
+<p>Socca and fresh apple served on a bed of lettuce.</p>
+<span>$15</span>
 </div>
 </div>
-</div>
-</div>
-<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
-<div class="story-images">
-<div class="row">
-<div class="col-6">
-<div class="image-inner">
-<img src="{% static 'website/images/hp-1-story-1.jpg' %}" alt="story">
-</div>
-</div>
-<div class="col-6">
-<div class="image-inner">
-<img src="{% static 'website/images/hp-1-story-2.jpg' %}" alt="story">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<section class="feature-hp-1 section-box" style="background-image: url({% static 'website/images/hp-1-features-1.jpg' %})">
-<div class="container">
-<div id="feature-hp-1" class="owl-carousel owl-theme">
-
-<div class="feature-content">
-<div class="feature-detail">
-<h3 class="special-heading">Amazing Delicious</h3>
-<h2 class="special-heading-1">Special Cocktails</h2>
-<p>Etiam tempor orci eu lobortis elementum. Scel eleifend donec pretium vulputate sapien nec sagittis. Risus quis varius quam quisque id. Aliquet porttr lacus l accumsan tortor posuere ac. Vel fringilla est ullamcorper eget nul facilisi etiam dignissim.</p>
-<div class="book-table">
-<a href="#" class="au-btn au-btn-red btn-medium">BOOK A TABLE</a>
-</div>
-</div>
-<div class="feature-image">
-<img src="{% static 'website/images/hp-1-features-2.jpg' %}" alt="feature-1">
-</div>
-</div>
-
-<div class="feature-content">
-<div class="feature-detail">
-<h3 class="special-heading">Amazing Delicious</h3>
-<h2 class="special-heading-1">Bean Salad</h2>
-<p>Mauris commodo quis imperdiet massa tincidunt nunc pulvinar sapien et. Sodales ut eu sem integer vitae. Nibh nisl condimentum id venenatis a condimentum vitae. Euismod nisi porta lorem mollis aliquam ut. Habita morbi tristique senectus et netus et malesus.</p>
-<div class="book-table">
-<a href="#" class="au-btn au-btn-black btn-medium">BOOK A TABLE</a>
-</div>
-</div>
-<div class="feature-image">
-<img src="{% static 'website/images/hp-1-features-3.jpg' %}" alt="feature-3">
-</div>
-</div>
-
-<div class="feature-content">
-<div class="feature-detail">
-<h3 class="special-heading">Amazing Delicious</h3>
-<h2 class="special-heading-1">Steak Fingers & Gravy</h2>
-<p>They ate it. They loved it. Then they hugged me and said they’d be back soon. Mauris sit amet commodo imperdiet massa tincidunt nunc pulvinar sap ut enim bland volutpat maecenas volutpat. Feugiat sed lectus vestibulum mattis ullamcorper enim blandit volutpat</p>
-<div class="book-table">
-<a href="#" class="au-btn au-btn-black btn-medium">BOOK A TABLE</a>
-</div>
-</div>
-<div class="feature-image">
-<img src="{% static 'website/images/hp-1-features-4.jpg' %}" alt="feature-4">
-</div>
-</div>
-</div>
-</div>
-</section>
-
-
-<section class="menu-hp-1 section-box">
-<div class="container">
-<h3 class="special-heading">Discover</h3>
-<h2 class="special-heading-1">OUR MENU</h2>
-<div class="menu-total">
-<div class="hash-image">
-
-	{% for i in category %}
-		<a href="#{{i.title}}"><img src="{{i.icon}}" alt="icon" onclick="view_button('{{i.title}}')"></a>
-	{% endfor %}
-</div>
-<div id="menu-hp-1" class="owl-carousel owl-theme">
-
-
-	{% for i in category %}
-
-
-<div class="menu-content item" data-thumb="{{i.title}}" data-hash="{{i.title}}">
-<div class="row">
-<div class="col-3 menu-title-total">
-<div class="menu-title">
-<img src="{{i.image}}" alt="menu-drinks">
-<span class="rotate">{{i.title|upper}}</span>
-</div>
-</div>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail">
-	{% if i.menu.0 %}
-<div class="menu-inner">
-<div class="food-images">
-<img src="{{i.menu.0.image.url}}" alt="drinks">
-</div>
-<div class="food-info">
-<span class="name">{{i.menu.0.title}} ....................................... ${{i.menu.0.price}}</span>
-<span class="description">{{i.menu.0.description}}</span>
-</div>
-</div>
-	{% endif %}
-	{% if i.menu.1 %}
-<div class="menu-inner">
-<div class="food-images">
-<img src="{{i.menu.1.image.url}}" alt="drinks">
-</div>
-<div class="food-info">
-<span class="name">{{i.menu.1.title}} ....................................... ${{i.menu.1.price}}</span>
-<span class="description">{{i.menu.1.description}}</span>
-</div>
-</div>
-	{% endif %}
-</div>
-</div>
-<div class="col-xl-5 col-lg-6 col-md-6 col-sm-6 col-12">
-<div class="menu-detail menu-detail-1">
-	{% if i.menu.2 %}
-<div class="menu-inner">
-<div class="food-images">
-<img src="{{i.menu.2.image.url}}" alt="drinks">
-</div>
-<div class="food-info">
-<span class="name">{{i.menu.2.title}} ....................................... ${{i.menu.2.price}}</span>
-<span class="description">{{i.menu.2.description}}</span>
-</div>
-</div>
-	{% endif %}
-	{% if i.menu.3 %}
-<div class="menu-inner">
-<div class="food-images">
-<img src="{{i.menu.3.image.url}}" alt="drinks">
-</div>
-<div class="food-info">
-<span class="name">{{i.menu.3.title}} ....................................... ${{i.menu.3.price}}</span>
-<span class="description">{{i.menu.3.description}}</span>
-</div>
-</div>
-	{% endif %}
-</div>
-</div>
-
-
-</div>
-</div>
-
-	{% endfor %}
-
-</div>
-</div>
-<div class="view">
-<a href="javascript:void(0)" class="au-btn au-btn-red btn-medium" onclick="gotomenu()">VIEW MORE</a>
-</div>
-</div>
-</section>
-
-
-<section class="cta-hp-1 section-box" style="background-image: url({% static 'website/images/hp-1-cta.jpg' %})">
-<div class="container">
-<div class="cta-content">
-<h2>BEST PLACE OF CULINARY</h2>
-</div>
-</div>
-</section>
-
-
-<section class="gallery-hp-1 section-box">
-<div class="container">
-<div class="gallery-content">
-<h3 class="special-heading">Discover</h3>
-<h2 class="special-heading-1">OUR GALLERY</h2>
-<div class="row">
-
-{% for i in gallery %}
-
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-<div class="gallery-detail">
-<img src="{{i.image.url}}" alt="gallery-1">
-<div class="overlay"></div>
-<div class="gallery-zoom">
-<a href="{{i.image.url}}" data-fancybox="gallery" class="gallery-elements">
-<i class="zmdi zmdi-search"></i>
-</a>
-</div>
-</div>
-</div>
-
 
 {% endfor %}
 
+</div>
 
-</div>
-<div class="view">
-<a href="{% url 'website:galleryimages' %}" class="au-btn au-btn-red btn-medium">VIEW MORE</a>
-</div>
+
+
+
+
 </div>
 </div>
 </section>
+
+
+
+
+
+
 
 
 <div class="book-table-hp-1 section-box">
@@ -611,15 +381,6 @@ At
 </div>
 </div>
 </div>
-
-
-<section class="map-section">
-<div class="google-map-section">
-<div class="map-wrapper js-google-map" data-makericon="{% static 'website/images/icons/map-icon.png' %}" data-makers="[[&quot;REON&quot;, &quot;Now that you visited our website,<br> how about checking out our office too?&quot;, 40.758913, -73.986228]]">
-<div class="map__holder js-map-holder" id="map"></div>
-</div>
-</div>
-</section>
 
 </div>
 <footer class="footer-section section-box">
@@ -786,34 +547,5 @@ At
 
 <script src="{% static 'website/js/custom.js' %}"></script>
 
-<script>
-
-	$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
-
-function gotomenu(){
-var currentUrl = window.location.href;
-console.log(currentUrl);
-var parts = currentUrl.split('#'); // Split the URL by '#'
-
-if(parts[1]){
-var wordAfterHash = parts[1]; // Get the second part which is after the hash
-console.log(wordAfterHash); // Output: Dinner
-}else{
-var wordAfterHash = 'Starter';
-}
-alert(wordAfterHash);
-		$.ajax({
-		  url: '/gotomenu',
-		  type: 'GET',
-		  data: {item:wordAfterHash},
-
-		  success: function(data) {
-			window.location.href='/menuitems/'+data.item;
-		  }
-	  });
-}
-</script>
 </body>
 </html>
