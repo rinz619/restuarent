@@ -20,42 +20,43 @@
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 <div class="footer-item">
 <div class="widget_recent_entries">
-<h5 class="widget-title">RECENT POSTS</h5>
+<h5 class="widget-title"></h5>
 <ul>
-<li><a href="blog-details.html">The Art of Eat</a></li>
-<li><a href="blog-details.html">Cook Parent Parental</a></li>
-<li><a href="blog-details.html">Every Cook and Cranny</a></li>
-<li><a href="blog-details.html">Cook the Cooks</a></li>
+<li><a href="/">Home</a></li>
+<li><a href="{% url 'website:menuitems' 'Starter' %}">Menu</a></li>
+<li><a href="{% url 'website:galleryimages' %}">Gallery</a></li>
+<li><a href="{% url 'website:aboutus' %}">About us</a></li>
+<li><a href="{% url 'website:contactus' %}">Contact us</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-<div class="footer-item">
-<h5>INSTAGRAM</h5>
-<div class="insta-content">
-<div class="insta-image">
-<a href="{% static 'website/images/hp-1-footer-1.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-1.jpg' %}" alt="insta-image"></a>
-</div>
-<div class="insta-image">
-<a href="{% static 'website/images/hp-1-footer-2.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-2.jpg' %}" alt="insta-image"></a>
-</div>
-<div class="insta-image">
-<a href="{% static 'website/images/hp-1-footer-3.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-3.jpg' %}" alt="insta-image"></a>
-</div>
-</div>
-<div class="insta-content">
-<div class="insta-image">
-<a href="{% static 'website/images/hp-1-footer-4.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-4.jpg' %}" alt="insta-image"></a>
-</div>
-<div class="insta-image">
-<a href="{% static 'website/images/hp-1-footer-5.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-5.jpg' %}" alt="insta-image"></a>
-</div>
-<div class="insta-image">
-<a href="{% static 'website/images/hp-1-footer-6.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-6.jpg' %}" alt="insta-image"></a>
-</div>
-</div>
-</div>
+<!--<div class="footer-item">-->
+<!--<h5>INSTAGRAM</h5>-->
+<!--<div class="insta-content">-->
+<!--<div class="insta-image">-->
+<!--<a href="{% static 'website/images/hp-1-footer-1.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-1.jpg' %}" alt="insta-image"></a>-->
+<!--</div>-->
+<!--<div class="insta-image">-->
+<!--<a href="{% static 'website/images/hp-1-footer-2.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-2.jpg' %}" alt="insta-image"></a>-->
+<!--</div>-->
+<!--<div class="insta-image">-->
+<!--<a href="{% static 'website/images/hp-1-footer-3.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-3.jpg' %}" alt="insta-image"></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="insta-content">-->
+<!--<div class="insta-image">-->
+<!--<a href="{% static 'website/images/hp-1-footer-4.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-4.jpg' %}" alt="insta-image"></a>-->
+<!--</div>-->
+<!--<div class="insta-image">-->
+<!--<a href="{% static 'website/images/hp-1-footer-5.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-5.jpg' %}" alt="insta-image"></a>-->
+<!--</div>-->
+<!--<div class="insta-image">-->
+<!--<a href="{% static 'website/images/hp-1-footer-6.jpg' %}" data-fancybox="gallery" class="gallery-elements"><img src="{% static 'website/images/hp-1-footer-6.jpg' %}" alt="insta-image"></a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 </div>
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
 <div class="footer-item">
@@ -103,7 +104,7 @@
 </div>
 </div>
 <div class="sub-footer">
-<span>Copyright @ 2018 <a href="#">Reon</a>. Get The Theme</span>
+<!--<span>Copyright @ 2018 <a href="#">Reon</a>. Get The Theme</span>-->
 </div>
 </footer>
 <a href="#" id="back-to-top">

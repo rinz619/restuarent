@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="utf-8">
-<title>Homepages 1</title>
+<title>ROYAL SPICE</title>
 <meta name="description" content>
 <meta name="author" content>
 
@@ -73,32 +73,7 @@ MENU
 
 </ul>
 </li>
-<li class="menu-item">
-<a href="about.html">
-PAGES
-</a>
-<ul class="sub-menu">
-<li><a href="about.html">About Us</a></li>
-<li><a href="our-team.html">Our Team</a></li>
-<li>
-<a href="events.html">Events</a>
-<ul class="sub-menu menu-levels">
-<li><a href="events-details.html">Events Details</a></li>
-</ul>
-</li>
-<li>
-<a href="reservation-form-v1.html">Reservation Form</a>
-<ul class="sub-menu menu-levels">
-<li><a href="reservation-form-v1.html">Reservation Form v1</a></li>
-<li><a href="reservation-form-v2.html">Reservation Form v2</a></li>
-<li><a href="reservation-form-v3.html">Reservation Form v3</a></li>
-</ul>
-</li>
-<li><a href="404.html">404</a></li>
-<li><a href="comming-soon.html">Comming Soon</a></li>
-</ul>
-</li>
-<li class="menu-item">
+	<li class="menu-item">
 <a href="{% url 'website:galleryimages' %}">
 GALLERY
 </a>
@@ -107,17 +82,15 @@ GALLERY
 </ul>
 </li>
 <li class="menu-item">
-<a href="blog-grid-v1.html">
-BLOG
+<a href="{% url 'website:aboutus' %}">
+ABOUT US
 </a>
 <ul class="sub-menu">
-<li><a href="blog-grid-v1.html">Blog Grid v1</a></li>
-<li><a href="blog-grid-v2.html">Blog Grid v2</a></li>
-<li><a href="blog-list.html">Blog List</a></li>
-<li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-<li><a href="blog-details.html">Blog Details</a></li>
+
 </ul>
 </li>
+
+
 <li class="menu-item">
 <a href="{% url 'website:contactus' %}">
 CONTACT

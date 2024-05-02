@@ -1,0 +1,348 @@
+{% include 'website/layouts/header.html' %}
+{% load static %}
+<div class="page-content">
+
+<section class="breadcrumb-events breadcrumb-section section-box" style="background-image: url({% static 'website/images/events-bc.jpg' %})">
+<div class="container">
+<div class="breadcrumb-inner">
+<h1>About Us</h1>
+<span class="breadcrumbs-text">Eget duis at tellus at urna condimentum. Mauris sit amet massa. Nullam non nisi est sit amet.</span>
+</div>
+</div>
+</section>
+
+
+<section class="about-story-section section-box">
+<div class="container">
+<div class="story-content">
+<h3 class="special-heading">Discover</h3>
+<h2 class="special-heading-1">OUR STORY</h2>
+<p>Ultrices vitae auctor eu augue. Pellentesque dignissim enim sit amet venenatis . Vulputate enim nulla aliquet porttitor lacus luctus. Dictumst quisque sagittis purus sit a. Praesent elementum facilisis leo vel fringilla est. Volutpat sed cras ornare arcu dui vivamus arcu felis. Non sodales neque sodales ut etiam sit amet ante. Lectus pro vivamus nibh nisl condimentum id venenatis a condimentum vitae.</p>
+<img src="{% static 'website/images/icons/about-story.png' %}" alt="story">
+</div>
+</div>
+</section>
+
+
+<section class="about-us-section section-box">
+<div class="container">
+<div class="row">
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+<div class="about-video">
+<div class="video bmd-modalButton" data-toggle="modal" data-target="#modal-video" data-bmdSrc="https://www.youtube.com/embed/CoAvaYOwm6k" data-bmdWidth="500" data-bmdHeight="281">
+<div class="youtube vimeo">
+<img src="{% static 'website/images/about-video-bg.jpg' %}" alt class="image-video-cover">
+<img class="btn-play" src="{% static 'website/images/icons/about-video-button.png' %}" alt="video-button">
+</div>
+</div>
+</div>
+</div>
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+<div class="about-content">
+<h3 class="special-heading">Discover</h3>
+<h2 class="special-heading-1">ABOUT US</h2>
+<p>Ultrices vitae auctor eu augue. Pellentesque dignissim eni amet venenatis . Vulputate enim nulla aliquet porttitor la. Dictumst quisque sagittis purus sit a. Praesent elementum facil fringilla est. Volutpat sed cras ornare arcu dui vivamus arcu felis. Ma etiam tempor orci eu lobortis elementum nibh tellus. Lectus proin nibh nisl condimentum id venenatis.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="our-team-section our-team-about section-box" style="background-image: url({% static 'website/images/about-our-team.jpg' %})">
+<div class="container">
+<h3 class="special-heading">Discover</h3>
+<h2 class="special-heading-1">OUR STAFF</h2>
+<div class="row">
+
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+<div class="our-team-content">
+<div class="member-image">
+<a href="#">
+<img src="{% static 'website/images/our-team-1.jpg' %}" alt="member-1">
+<div class="overlay"></div>
+</a>
+<div class="socials">
+<a><i class="zmdi zmdi-facebook"></i></a>
+<a><i class="zmdi zmdi-google-plus"></i></a>
+<a><i class="zmdi zmdi-twitter"></i></a>
+</div>
+<div class="background-gradient"></div>
+</div>
+<div class="member-info">
+<span class="name">Andrew Austin</span>
+<span class="job">Chef</span>
+</div>
+</div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+<div class="our-team-content">
+<div class="member-image">
+<a href="#">
+<img src="{% static 'website/images/our-team-2.jpg' %}" alt="member-2">
+<div class="overlay"></div>
+</a>
+<div class="socials">
+<a><i class="zmdi zmdi-facebook"></i></a>
+<a><i class="zmdi zmdi-google-plus"></i></a>
+<a><i class="zmdi zmdi-twitter"></i></a>
+</div>
+<div class="background-gradient"></div>
+</div>
+<div class="member-info">
+<span class="name">Tom Anderson</span>
+<span class="job">Staff</span>
+</div>
+</div>
+</div>
+
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+<div class="our-team-content">
+<div class="member-image">
+<a href="#">
+<img src="{% static 'website/images/our-team-3.jpg' %}" alt="member-3">
+<div class="overlay"></div>
+</a>
+<div class="socials">
+<a><i class="zmdi zmdi-facebook"></i></a>
+<a><i class="zmdi zmdi-google-plus"></i></a>
+<a><i class="zmdi zmdi-twitter"></i></a>
+</div>
+<div class="background-gradient"></div>
+</div>
+<div class="member-info">
+<span class="name">Emma Johnson</span>
+<span class="job">Staff</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="about-testimonials section-box">
+<div class="container">
+<h3 class="special-heading">Reviews</h3>
+<h2 class="special-heading-1">TESTIMONIALS</h2>
+<div id="about-testimonials" class="owl-carousel owl-theme">
+
+<div class="item">
+<div class="icon">
+<div class="quote">
+<i class="zmdi zmdi-quote"></i>
+</div>
+<div class="star">
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+</div>
+</div>
+<p>“Leo integer malesuada nunc vel risus commodo viverr ma. Laoreet sit amet cursus sit amet dictum. Auctor augue mauris augue neque gravida in fermentum et aliquet lectus.”</p>
+<div class="client">
+<img src="{% static 'website/images/about-testimonials-1.jpg' %}" alt="cilent-1">
+<div class="info">
+<span class="name">GEORGE HARRISON</span>
+<span class="job">UX Designer</span>
+</div>
+</div>
+</div>
+
+<div class="item">
+<div class="icon">
+<div class="quote">
+<i class="zmdi zmdi-quote"></i>
+</div>
+<div class="star">
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+</div>
+</div>
+<p>“Dictum non consectetur a erat nam at lectus urna. Amet facilisis magna etiam tempor orci eu lobortis elementum. Non enim praesent elementum facilisis leo vel.”</p>
+<div class="client">
+<img src="{% static 'website/images/about-testimonials-2.jpg' %}" alt="client-2">
+<div class="info">
+<span class="name">STEVEN HOPKINS</span>
+<span class="job">UI Designer</span>
+</div>
+</div>
+</div>
+
+<div class="item">
+<div class="icon">
+<div class="quote">
+<i class="zmdi zmdi-quote"></i>
+</div>
+<div class="star">
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+</div>
+</div>
+<p>“Dapibus ultrices in iaculis nunc sed augue lacus viverra. Ar cursus vitae congue mauris rhoncus aenean vel. Sollicitudin nibh sit amet commodo lectus quam id leo in vitae turpis.”</p>
+<div class="client">
+<img src="images/about-testimonials-3.jpg" alt="cilent-3">
+<div class="info">
+<span class="name">AMBER MILLER</span>
+<span class="job">Marketing</span>
+</div>
+</div>
+</div>
+
+<div class="item">
+<div class="icon">
+<div class="quote">
+<i class="zmdi zmdi-quote"></i>
+</div>
+<div class="star">
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+</div>
+</div>
+<p>“Placerat in egestas erat imperdiet sed euismod. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis. Porta nibh venenatis cras sed felis eget velit.”</p>
+<div class="client">
+<img src="images/about-testimonials-4.jpg" alt="client-4">
+<div class="info">
+<span class="name">BROOKE HUNT</span>
+<span class="job">Content Writer</span>
+</div>
+</div>
+</div>
+
+<div class="item">
+<div class="icon">
+<div class="quote">
+<i class="zmdi zmdi-quote"></i>
+</div>
+<div class="star">
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+</div>
+</div>
+<p>“Commodo viverra maecenas accumsan lacus vel facilisis volutpat. Sed faucibus turpis in eu. Est lorem ipsum dolor sit amet consecur adipiscing elit pellentesque.”</p>
+<div class="client">
+<img src="images/about-testimonials-5.jpg" alt="cilent-5">
+<div class="info">
+<span class="name">MONICA CAMPBELL</span>
+<span class="job">UI Designer</span>
+</div>
+</div>
+</div>
+
+<div class="item">
+<div class="icon">
+<div class="quote">
+<i class="zmdi zmdi-quote"></i>
+</div>
+<div class="star">
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star-half"></i>
+</div>
+</div>
+<p>“Tortor dignissim convallis aenean et tortor at. Praesent semper feugiat nibh sed pulvinar proin. Sagittis purus sit amet volutpat consequat mauris nunc congue.”</p>
+<div class="client">
+<img src="images/about-testimonials-6.jpg" alt="client-6">
+<div class="info">
+<span class="name">GEORGE EDWARDS</span>
+<span class="job">Creative Director</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<div class="book-table-hp-1 section-box">
+<div class="container">
+<div class="book-content">
+<form class="form-detail" method="post">
+<h3 class="special-heading">Reservation</h3>
+<h2 class="special-heading-1">BOOK A TABLE</h2>
+<p>Tempus urna et pharetra pharetra massa massa. Malesuada fames ac turpis egestas. Ut tristique et egestas quis.</p>
+<div class="form-group">
+<div class="form-row">
+<select name="people" id="people" class="input-text">
+<option value="1 Person">1 Person</option>
+<option value="2 Person">2 Person</option>
+<option value="3 Person">3 Person</option>
+<option value="4 Person">4 Person</option>
+</select>
+<span class="select-btn">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+<span class="special">
+For
+</span>
+</div>
+<div class="form-row form-row-1">
+<input type="text" name="date" class="date" id="date" placeholder="8/9/2018">
+<span class="special">
+At
+</span>
+</div>
+<div class="form-row form-row-2">
+<select name="time" id="time" class="input-text">
+<option value="7:00pm">7:00pm</option>
+<option value="8:00pm">8:00pm</option>
+<option value="9:00pm">9:00pm</option>
+<option value="10:00pm">10:00pm</option>
+</select>
+<span class="select-btn">
+<i class="zmdi zmdi-chevron-down"></i>
+</span>
+</div>
+<div class="form-row form-row-3">
+<input type="submit" name="submit" class="submit au-btn au-btn-red btn-medium" value="BOOK A TABLE">
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+
+<section class="time-open-section time-open-about section-box">
+<div class="container">
+<div class="row">
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+<div class="time-content">
+<h4>Lunch 12:00 - 14:00</h4>
+<span>Everyday</span>
+</div>
+</div>
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+<div class="time-content">
+<h4>Dinner 18:00 - 21:30</h4>
+<span>Monday – Thursday</span>
+</div>
+</div>
+<div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+<div class="time-content">
+<h4>Dinner 19:00 - 21:00</h4>
+<span>Friday – Sunday</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</div>
+{% include 'website/layouts/footer.html' %}
