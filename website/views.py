@@ -23,6 +23,7 @@ class index(View):
         context = {}
         context['banners'] = Banner.objects.filter(is_active=True).order_by('?')[:1]
         context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')[:6]
+        context['testimonials'] = Testimonials.objects.filter(is_active=True).order_by('-id')[:6]
         category = Category.objects.filter(is_active=True).order_by('id')
         cate = menuincategory(category,many=True)
         context['category'] = cate.data
@@ -44,6 +45,12 @@ class contactus(View):
     def get(self, request):
         context = {}
         return renderhelper(request, 'contact', 'contactus',context)
+
+
+class aboutus(View):
+    def get(self, request):
+        context = {}
+        return renderhelper(request, 'about', 'about',context)
 
 
 def gotomenu(request):
