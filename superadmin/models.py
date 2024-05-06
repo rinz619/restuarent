@@ -142,6 +142,7 @@ class Menu(models.Model):
 
 
 class Banner(models.Model):
+    title = models.TextField(null=True, blank=True)
     type = models.IntegerField(default=1)
     image = models.FileField(upload_to='banner', null=True, blank=True)
     is_active = models.BooleanField(default=True)
@@ -159,6 +160,18 @@ class Gallery(models.Model):
 class Testimonials(models.Model):
     user = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    is_active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Reservations(models.Model):
+    name = models.TextField(null=True, blank=True)
+    phone = models.TextField(null=True, blank=True)
+    email = models.TextField(null=True, blank=True)
+    person = models.TextField(null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    time = models.TextField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

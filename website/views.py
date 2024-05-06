@@ -32,11 +32,13 @@ class index(View):
 class galleryimages(View):
     def get(self, request):
         context = {}
+        context['category'] = category= Category.objects.filter(is_active=True).order_by('id')
         context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')
         return renderhelper(request, 'gallery', 'gallery-view',context)
 class menuitems(View):
     def get(self, request,item):
         context = {}
+        context['category'] = category = Category.objects.filter(is_active=True).order_by('id')
         context['menu'] = Menu.objects.filter(category__title__icontains=item)
         # context['gallery'] = Gallery.objects.filter(is_active=True).order_by('-id')
         return renderhelper(request, 'menu', 'menu',context)
@@ -44,12 +46,14 @@ class menuitems(View):
 class contactus(View):
     def get(self, request):
         context = {}
+        context['category'] = category = Category.objects.filter(is_active=True).order_by('id')
         return renderhelper(request, 'contact', 'contactus',context)
 
 
 class aboutus(View):
     def get(self, request):
         context = {}
+        context['category'] = category = Category.objects.filter(is_active=True).order_by('id')
         return renderhelper(request, 'about', 'about',context)
 
 

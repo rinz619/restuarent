@@ -40,12 +40,12 @@
 
 <div class="item-content col-lg-6  salad_card">
 <div class="image">
-<img src="{% static 'website/images/menu-starter-salad-1.jpg' %}" alt="salad">
+<img src="{{i.image.url}}" alt="salad">
 </div>
 <div class="info">
-<h5>Peanut And Ugli Fruit Salad</h5>
-<p>Socca and fresh apple served on a bed of lettuce.</p>
-<span>$15</span>
+<h5>{{i.title}}</h5>
+<p>{{i.description}}</p>
+<span>${{i.price}}</span>
 </div>
 </div>
 

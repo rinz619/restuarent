@@ -35,6 +35,10 @@ urlpatterns = [
     path('testimonialcreate', views.testimonialcreate.as_view(), name='testimonialcreate'),
     path('testimonialedit/<int:id>', views.testimonialcreate.as_view(), name='testimonialedit'),
 
+    path('reservationlist', views.reservationlist.as_view(), name='reservationlist'),
+    # path('reservationcreate', views.reservationcreate.as_view(), name='reservationcreate'),
+    # path('testimonialedit/<int:id>', views.testimonialcreate.as_view(), name='testimonialedit'),
+
 
 
 ]

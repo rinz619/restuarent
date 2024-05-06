@@ -120,15 +120,18 @@ class bannercreate(LoginRequiredMixin, View):
             data = Banner()
             messages.info(request, 'Successfully Added')
 
-
+        title = request.POST['title']
         image = request.FILES.get('imagefile')
-        file_extension = image.name.split('.')[-1].lower()
-        if file_extension in ['jpg', 'jpeg', 'png', 'gif']:
-            type = 1
-        else:
-            type = 2
-        data.type=type
-        data.image=image
+        if image:
+            file_extension = image.name.split('.')[-1].lower()
+            if file_extension in ['jpg', 'jpeg', 'png', 'gif']:
+                type = 1
+            else:
+                type = 2
+            data.image = image
+            data.type=type
+
+        data.title=title
         data.save()
         return redirect('superadmin:bannerlist')
 
@@ -334,7 +337,7 @@ class menulist(LoginRequiredMixin, View):
             if status:
                 conditions &= Q(is_active=status)
             data_list = Menu.objects.filter(conditions).order_by('-id')
-            paginator = Paginator(data_list, 1)
+            paginator = Paginator(data_list, 15)
 
             try:
                 datas = paginator.page(page)
@@ -348,7 +351,7 @@ class menulist(LoginRequiredMixin, View):
             return JsonResponse({'status': True, 'template': html_content})
 
         data = Menu.objects.all().order_by('-id')
-        p = Paginator(data, 1)
+        p = Paginator(data, 15)
         page_num = request.GET.get('page', 1)
         try:
             page = p.page(page_num)
@@ -485,3 +488,53 @@ class testimonialcreate(LoginRequiredMixin, View):
     # Testimonial module end
 
 
+class reservationlist(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+        conditions = Q()
+
+        if is_ajax(request):
+            page = request.GET.get('page', 1)
+            context['page'] = page
+            status = request.GET.get('status')
+            type = request.GET.get('type')
+            if type == '1':
+                id = request.GET.get('id')
+                vl = request.GET.get('vl')
+                cat = Banner.objects.get(id=id)
+                if vl == '2':
+                    cat.is_active = False
+                else:
+                    cat.is_active = True
+                cat.save()
+                messages.info(request, 'Successfully Updated')
+            elif type == '2':
+                id = request.GET.get('id')
+                Banner.objects.filter(id=id).delete()
+                messages.info(request, 'Successfully Deleted')
+            if status:
+                conditions &= Q(is_active=status)
+            data_list = Banner.objects.filter(conditions).order_by('-id')
+            paginator = Paginator(data_list, 15)
+
+            try:
+                datas = paginator.page(page)
+            except PageNotAnInteger:
+                datas = paginator.page(1)
+            except EmptyPage:
+                datas = paginator.page(paginator.num_pages)
+            context['datas'] = datas
+            template = loader.get_template('superadmin/banner/banner-table.html')
+            html_content = template.render(context, request)
+            return JsonResponse({'status': True, 'template': html_content})
+
+        data = Banner.objects.all().order_by('-id')
+        p = Paginator(data, 15)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = p.page(page_num)
+        except EmptyPage:
+            page = p.page(1)
+        context['datas'] = page
+        context['page'] = page_num
+        return renderhelper(request, 'reservations', 'reservation-view', context)
