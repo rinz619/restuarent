@@ -31,8 +31,8 @@
                                                <div class="form-group col-lg-2 col-12">
                                                   <select name="" id="status" class="form-control form-select select2" data-bs-placeholder="Select Country">
                                             <option value="">Select</option>
-                                            <option value="True">Active</option>
-                                            <option value="False">Inactive</option>
+                                            <option value="True">Reserved</option>
+                                            <option value="False">Unreserved</option>
 
                                         </select>
                                                </div>
@@ -114,11 +114,11 @@
                <div class="modal-body">
                    <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal">
                    <span aria-hidden="true">&times;</span></button>
-                   <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
-                   <h4 class="text-danger">Are You Sure Do You Want To Delete ?</h4>
-                   <p class="mg-b-20 mg-x-20">Item Will be Deleted Permanently</p>
+                   <i class="icon icon-check fs-70 text-success lh-1 my-5 d-inline-block"></i>
+                   <h4 class="text-success">Are You Sure Do You Want To Reserve ?</h4>
+<!--                   <p class="mg-b-20 mg-x-20">Item Will be Deleted Permanently</p>-->
                    <input type="hidden" id="hid">
-                   <button class="btn btn-success" onclick="bannerdelete()">Yes</button>
+                   <button class="btn btn-success" onclick="reserve_now()">Yes</button>
                    <button aria-label="Close" class="btn btn-danger pd-x-25" data-bs-dismiss="modal">Cancel</button>
                </div>
                <div class="modal-footer">

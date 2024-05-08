@@ -12,8 +12,10 @@ urlpatterns = [
     path('galleryimages',views.galleryimages.as_view(),name='galleryimages'),
     path('contactus',views.contactus.as_view(),name='contactus'),
     path('aboutus',views.aboutus.as_view(),name='aboutus'),
+    path('reservation',views.reservation.as_view(),name='reservation'),
     path('menuitems/<str:item>',views.menuitems.as_view(),name='menuitems'),
     path('gotomenu',views.gotomenu,name='gotomenu'),
+
 
 ]
 

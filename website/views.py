@@ -28,7 +28,15 @@ class index(View):
         cate = menuincategory(category,many=True)
         context['category'] = cate.data
         return renderhelper(request, 'home', 'index',context)
-
+    def post(self,request):
+        name = request.POST['name']
+        phone = request.POST['phone']
+        email = request.POST['email']
+        person = request.POST['people']
+        date = request.POST['date']
+        time = request.POST['time']
+        Reservations(name=name,phone=phone,email=email,person=person,date=date,time=time).save()
+        return redirect('website:reservation')
 class galleryimages(View):
     def get(self, request):
         context = {}
@@ -48,13 +56,22 @@ class contactus(View):
         context = {}
         context['category'] = category = Category.objects.filter(is_active=True).order_by('id')
         return renderhelper(request, 'contact', 'contactus',context)
-
+    def post(self,request):
+        print('in')
+        return redirect('website:contactus')
 
 class aboutus(View):
     def get(self, request):
         context = {}
         context['category'] = category = Category.objects.filter(is_active=True).order_by('id')
         return renderhelper(request, 'about', 'about',context)
+
+
+class reservation(View):
+    def get(self, request):
+        context = {}
+        context['category'] = category = Category.objects.filter(is_active=True).order_by('id')
+        return renderhelper(request, 'success', 'reservationsuccess',context)
 
 
 def gotomenu(request):

@@ -477,10 +477,12 @@ class testimonialcreate(LoginRequiredMixin, View):
 
         user = request.POST['user']
         description = request.POST['message']
+        star = request.POST['star']
 
 
         data.user=user
         data.description=description
+        data.star=star
         data.is_active=True
         data.save()
         return redirect('superadmin:testimoniallist')
@@ -501,7 +503,7 @@ class reservationlist(LoginRequiredMixin, View):
             if type == '1':
                 id = request.GET.get('id')
                 vl = request.GET.get('vl')
-                cat = Banner.objects.get(id=id)
+                cat = Reservations.objects.get(id=id)
                 if vl == '2':
                     cat.is_active = False
                 else:
@@ -510,11 +512,11 @@ class reservationlist(LoginRequiredMixin, View):
                 messages.info(request, 'Successfully Updated')
             elif type == '2':
                 id = request.GET.get('id')
-                Banner.objects.filter(id=id).delete()
-                messages.info(request, 'Successfully Deleted')
+                Reservations.objects.filter(id=id).update(is_active=True)
+                messages.info(request, 'Successfully Reserved')
             if status:
                 conditions &= Q(is_active=status)
-            data_list = Banner.objects.filter(conditions).order_by('-id')
+            data_list = Reservations.objects.filter(conditions).order_by('-id')
             paginator = Paginator(data_list, 15)
 
             try:
@@ -524,11 +526,11 @@ class reservationlist(LoginRequiredMixin, View):
             except EmptyPage:
                 datas = paginator.page(paginator.num_pages)
             context['datas'] = datas
-            template = loader.get_template('superadmin/banner/banner-table.html')
+            template = loader.get_template('superadmin/reservations/reservation-table.html')
             html_content = template.render(context, request)
             return JsonResponse({'status': True, 'template': html_content})
 
-        data = Banner.objects.all().order_by('-id')
+        data = Reservations.objects.all().order_by('-id')
         p = Paginator(data, 15)
         page_num = request.GET.get('page', 1)
         try:

@@ -31,12 +31,23 @@
                             <div class="card-body">
 
                                 <div class="row">
-                                    <div class="form-group col-lg-12 col-12">
+                                    <div class="form-group col-lg-6 col-12">
                                                     <label for="" class="form-label">Name</label>
                                                     <input type="text" class="form-control"  name="user" required  value="{{data.user}}">
 
                                                 </div>
-                                  
+                                   <div class="form-group col-lg-6 col-12">
+                                                    <label for="" class="form-label">Start</label>
+                                       <select class="form-control" name="star" required>
+                                           <option value="">select</option>
+                                           <option value="1" {% if data.star == 1 %} selected{% endif %}>1</option>
+                                           <option value="2" {% if data.star == 2 %} selected{% endif %}>2</option>
+                                           <option value="3" {% if data.star == 3 %} selected{% endif %}>3</option>
+                                           <option value="4" {% if data.star == 4 %} selected{% endif %}>4</option>
+                                           <option value="5" {% if data.star == 5 %} selected{% endif %}>5</option>
+                                       </select>
+                                                </div>
+
                                     <div class="form-group col-lg-12 col-12">
                                         <div class="form-label">Description</div>
                                         <textarea class="form-control mb-4" placeholder="" rows="4" required name="message">{{data.description}}</textarea>

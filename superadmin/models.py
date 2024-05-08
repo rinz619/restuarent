@@ -160,6 +160,7 @@ class Gallery(models.Model):
 class Testimonials(models.Model):
     user = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    star = models.IntegerField(null=True, blank=True)
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
