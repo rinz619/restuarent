@@ -279,63 +279,63 @@
 </section>
 
 
-<div class="book-table-hp-1 section-box">
-<div class="container">
-<div class="book-content">
-<form class="form-detail" method="post">
-	{% csrf_token %}
-<h3 class="special-heading">Reservation</h3>
-<h2 class="special-heading-1">BOOK A TABLE</h2>
-<p>Tempus urna et pharetra pharetra massa massa. Malesuada fames ac turpis egestas. Ut tristique et egestas quis.</p>
-<div class="form-group">
-<div class="row">
-	<div class="col-3">
-			<input type="text" name="name" class="input-text form-control" id="" placeholder="Name" required >
+<!--<div class="book-table-hp-1 section-box">-->
+<!--<div class="container">-->
+<!--<div class="book-content">-->
+<!--<form class="form-detail" method="post">-->
+<!--	{% csrf_token %}-->
+<!--<h3 class="special-heading">Reservation</h3>-->
+<!--<h2 class="special-heading-1">BOOK A TABLE</h2>-->
+<!--<p>Tempus urna et pharetra pharetra massa massa. Malesuada fames ac turpis egestas. Ut tristique et egestas quis.</p>-->
+<!--<div class="form-group">-->
+<!--<div class="row">-->
+<!--	<div class="col-3">-->
+<!--			<input type="text" name="name" class="input-text form-control" id="" placeholder="Name" required >-->
 
-		</div>
-	<div class="col-3">
-			<input type="text" name="phone" class="input-text form-control" id="" placeholder="Phone" required>
+<!--		</div>-->
+<!--	<div class="col-3">-->
+<!--			<input type="text" name="phone" class="input-text form-control" id="" placeholder="Phone" required>-->
 
-		</div>
-	<div class="col-3">
-			<input type="email" name="email" class="input-text form-control" id="" placeholder="E-mail" required>
+<!--		</div>-->
+<!--	<div class="col-3">-->
+<!--			<input type="email" name="email" class="input-text form-control" id="" placeholder="E-mail" required>-->
 
-		</div>
-	<div class="col-3">
-	<input type="submit" name="submit" class="submit au-btn au-btn-red btn-medium" value="BOOK A TABLE">
+<!--		</div>-->
+<!--	<div class="col-3">-->
+<!--	<input type="submit" name="submit" class="submit au-btn au-btn-red btn-medium" value="BOOK A TABLE">-->
 
-		</div>
-		<div class="col-3">
-			<select name="people" id="people" class="input-text form-control" required>
-				<option value="">Select</option>
+<!--		</div>-->
+<!--		<div class="col-3">-->
+<!--			<select name="people" id="people" class="input-text form-control" required>-->
+<!--				<option value="">Select</option>-->
 
-<option value="1">1 Person</option>
-<option value="2">2 Person</option>
-<option value="3">3 Person</option>
-<option value="4">4 Person</option>
-</select>
-		</div><div class="col-3">
-			<input type="date" name="date" class="form-control" id="" placeholder="" autocomplete="off" required>
+<!--<option value="1">1 Person</option>-->
+<!--<option value="2">2 Person</option>-->
+<!--<option value="3">3 Person</option>-->
+<!--<option value="4">4 Person</option>-->
+<!--</select>-->
+<!--		</div><div class="col-3">-->
+<!--			<input type="date" name="date" class="form-control" id="" placeholder="" autocomplete="off" required>-->
 
-		</div><div class="col-3">
-<select name="time" id="time" class="input-text form-control" required>
-<option value="">Select</option>
-<option value="7:00pm">7:00pm</option>
-<option value="8:00pm">8:00pm</option>
-<option value="9:00pm">9:00pm</option>
-<option value="10:00pm">10:00pm</option>
-</select>
-		</div>
-
-
+<!--		</div><div class="col-3">-->
+<!--<select name="time" id="time" class="input-text form-control" required>-->
+<!--<option value="">Select</option>-->
+<!--<option value="7:00pm">7:00pm</option>-->
+<!--<option value="8:00pm">8:00pm</option>-->
+<!--<option value="9:00pm">9:00pm</option>-->
+<!--<option value="10:00pm">10:00pm</option>-->
+<!--</select>-->
+<!--		</div>-->
 
 
-	</div>
-	</div>
-</form>
-</div>
-</div>
-</div>
+
+
+<!--	</div>-->
+<!--	</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 
 <section class="map-section">
@@ -353,6 +353,14 @@
 
 {% include 'website/layouts/footer.html' %}
 
+{% if popup %}
+<script>
+window.onload = function() {
+  $('#exampleModal').modal('show');
+}
+
+</script>
+{% endif %}
 <script>
 
 	$('#myModal').on('shown.bs.modal', function () {

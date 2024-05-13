@@ -15,6 +15,9 @@ urlpatterns = [
     path('Dashboard',views.dashboard.as_view(),name='dashboard'),
     path('Logout', views.Logout.as_view(), name='Logout'),
 
+    path('popup', views.popup.as_view(), name='popup'),
+    path('popupstatus', views.popupstatus, name='popupstatus'),
+
     path('bannerlist', views.bannerlist.as_view(), name='bannerlist'),
     path('bannercreate', views.bannercreate.as_view(), name='bannercreate'),
     path('banneredit/<int:id>', views.bannercreate.as_view(), name='banneredit'),

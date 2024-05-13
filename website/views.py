@@ -27,6 +27,10 @@ class index(View):
         category = Category.objects.filter(is_active=True).order_by('id')
         cate = menuincategory(category,many=True)
         context['category'] = cate.data
+        try:
+            context['popup'] = Popups.objects.get(id=1,is_active=True)
+        except:
+            context['popup'] =None
         return renderhelper(request, 'home', 'index',context)
     def post(self,request):
         name = request.POST['name']

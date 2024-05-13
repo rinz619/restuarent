@@ -135,6 +135,40 @@ class bannercreate(LoginRequiredMixin, View):
         data.save()
         return redirect('superadmin:bannerlist')
 
+def popupstatus(requst):
+    vl = requst.GET['vl']
+    print(vl)
+    cat = Popups.objects.get(id=1)
+    if vl == '2':
+        cat.is_active = False
+    else:
+        cat.is_active = True
+    cat.save()
+
+    return JsonResponse({'status':True})
+class popup(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+
+        context['data'] = Popups.objects.get(id=1)
+
+        return renderhelper(request, 'banner', 'banner-create2', context)
+
+    def post(self, request, id=None):
+        try:
+            data = Popups.objects.get(id=id)
+            messages.info(request, 'Successfully Updated')
+        except:
+            data = Popups()
+            messages.info(request, 'Successfully Added')
+
+        # title = request.POST['title']
+        image = request.FILES.get('imagefile')
+
+        data.image = image
+
+        data.save()
+        return redirect('superadmin:popup')
     # Banner module end
 
 

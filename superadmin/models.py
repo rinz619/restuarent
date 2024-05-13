@@ -150,6 +150,13 @@ class Banner(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
 
+class Popups(models.Model):
+    image = models.FileField(upload_to='popup', null=True, blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
 class Gallery(models.Model):
     image = models.FileField(upload_to='gallery', null=True, blank=True)
     is_active = models.BooleanField(default=True)

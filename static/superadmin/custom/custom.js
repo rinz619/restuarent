@@ -115,6 +115,24 @@ function filterbanner(data) {
   });
   }
 
+ function popupstatus(id,vl) {
+
+
+
+    $.ajax({
+      url: '/superadmin/popupstatus',
+      type: 'GET',
+      data: {id:id,vl:vl},
+
+      success: function(data) {
+
+       window.location.reload();
+
+
+      }
+  });
+  }
+
 
  function bannerdelete() {
 
