@@ -13,7 +13,11 @@ urlpatterns = [
 
     path('',views.index.as_view(),name='login'),
     path('Dashboard',views.dashboard.as_view(),name='dashboard'),
+    path('profile',views.profile,name="profile"),
     path('Logout', views.Logout.as_view(), name='Logout'),
+
+    path('popup', views.popup.as_view(), name='popup'),
+    path('popupstatus', views.popupstatus, name='popupstatus'),
 
     path('bannerlist', views.bannerlist.as_view(), name='bannerlist'),
     path('bannercreate', views.bannercreate.as_view(), name='bannercreate'),
@@ -34,6 +38,10 @@ urlpatterns = [
     path('testimoniallist', views.testimoniallist.as_view(), name='testimoniallist'),
     path('testimonialcreate', views.testimonialcreate.as_view(), name='testimonialcreate'),
     path('testimonialedit/<int:id>', views.testimonialcreate.as_view(), name='testimonialedit'),
+
+    path('reservationlist', views.reservationlist.as_view(), name='reservationlist'),
+    # path('reservationcreate', views.reservationcreate.as_view(), name='reservationcreate'),
+    # path('testimonialedit/<int:id>', views.testimonialcreate.as_view(), name='testimonialedit'),
 
 
 

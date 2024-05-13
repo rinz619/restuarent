@@ -31,7 +31,9 @@
     opacity: 1;
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     transform-origin: 50% 50% 0px;" class="" data-frames="[{&quot;delay&quot;:500,&quot;speed&quot;:1000,&quot;frame&quot;:&quot;0&quot;,&quot;from&quot;:&quot;y:-50px;opacity:0;&quot;,&quot;to&quot;:&quot;o:1;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;},{&quot;delay&quot;:&quot;wait&quot;,&quot;speed&quot;:500,&quot;frame&quot;:&quot;999&quot;,&quot;to&quot;:&quot;y:-20px;opacity:0;&quot;,&quot;ease&quot;:&quot;Power3.easeInOut&quot;}]" data-fontsize="['70', '70', '70', '70']" data-lineheight="['50', '50', '50', '50']" data-color="#f2f2f2" data-textAlign="['center', 'center', 'center', 'center']" data-x="['center','center','center','center']" data-y="['middle','middle','middle','middle']" data-hoffset="['0', '0', '0', '0']" data-voffset="['-74', '-75', '-85', '-60']" data-width="['1200', '770', '800', '800']" data-whitespace="normal" data-basealign="slide" data-responsive_offset="off">
-Welcome to Royal Spice
+{% if banners.0.title %}
+		 {{banners.0.title}}
+		 {% endif %}
 </div>
 
     </div>
@@ -100,11 +102,27 @@ Welcome to Royal Spice
 <h3 class="special-heading">Testimonials</h3>
 <h2 class="special-heading-1">{{i.user|upper}}</h2>
 		<div class="star">
+			{% if i.star == 1 %}
 <i class="zmdi zmdi-star"></i>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+
+			{% elif i.star == 2 %}
+<i class="zmdi zmdi-star"></i>
+<i class="zmdi zmdi-star"></i>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+			{% elif i.star == 3 %}
 <i class="zmdi zmdi-star"></i>
 <i class="zmdi zmdi-star"></i>
 <i class="zmdi zmdi-star"></i>
 <span><i class="zmdi zmdi-star-outline"></i></span>
+<span><i class="zmdi zmdi-star-outline"></i></span>
+			{% endif %}
+
 </div>
 <p>{{i.description}}</p>
 
@@ -261,59 +279,72 @@ Welcome to Royal Spice
 </section>
 
 
-<div class="book-table-hp-1 section-box">
-<div class="container">
-<div class="book-content">
-<form class="form-detail" method="post">
-<h3 class="special-heading">Reservation</h3>
-<h2 class="special-heading-1">BOOK A TABLE</h2>
-<p>Tempus urna et pharetra pharetra massa massa. Malesuada fames ac turpis egestas. Ut tristique et egestas quis.</p>
-<div class="form-group">
-<div class="form-row">
-<select name="people" id="people" class="input-text">
-<option value="1 Person">1 Person</option>
-<option value="2 Person">2 Person</option>
-<option value="3 Person">3 Person</option>
-<option value="4 Person">4 Person</option>
-</select>
-<span class="select-btn">
-<i class="zmdi zmdi-chevron-down"></i>
-</span>
-<span class="special">
-For
-</span>
-</div>
-<div class="form-row form-row-1">
-<input type="text" name="date" class="date" id="date" placeholder="8/9/2018">
-<span class="special">
-At
-</span>
-</div>
-<div class="form-row form-row-2">
-<select name="time" id="time" class="input-text">
-<option value="7:00pm">7:00pm</option>
-<option value="8:00pm">8:00pm</option>
-<option value="9:00pm">9:00pm</option>
-<option value="10:00pm">10:00pm</option>
-</select>
-<span class="select-btn">
-<i class="zmdi zmdi-chevron-down"></i>
-</span>
-</div>
-<div class="form-row form-row-3">
-<input type="submit" name="submit" class="submit au-btn au-btn-red btn-medium" value="BOOK A TABLE">
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
+<!--<div class="book-table-hp-1 section-box">-->
+<!--<div class="container">-->
+<!--<div class="book-content">-->
+<!--<form class="form-detail" method="post">-->
+<!--	{% csrf_token %}-->
+<!--<h3 class="special-heading">Reservation</h3>-->
+<!--<h2 class="special-heading-1">BOOK A TABLE</h2>-->
+<!--<p>Tempus urna et pharetra pharetra massa massa. Malesuada fames ac turpis egestas. Ut tristique et egestas quis.</p>-->
+<!--<div class="form-group">-->
+<!--<div class="row">-->
+<!--	<div class="col-3">-->
+<!--			<input type="text" name="name" class="input-text form-control" id="" placeholder="Name" required >-->
+
+<!--		</div>-->
+<!--	<div class="col-3">-->
+<!--			<input type="text" name="phone" class="input-text form-control" id="" placeholder="Phone" required>-->
+
+<!--		</div>-->
+<!--	<div class="col-3">-->
+<!--			<input type="email" name="email" class="input-text form-control" id="" placeholder="E-mail" required>-->
+
+<!--		</div>-->
+<!--	<div class="col-3">-->
+<!--	<input type="submit" name="submit" class="submit au-btn au-btn-red btn-medium" value="BOOK A TABLE">-->
+
+<!--		</div>-->
+<!--		<div class="col-3">-->
+<!--			<select name="people" id="people" class="input-text form-control" required>-->
+<!--				<option value="">Select</option>-->
+
+<!--<option value="1">1 Person</option>-->
+<!--<option value="2">2 Person</option>-->
+<!--<option value="3">3 Person</option>-->
+<!--<option value="4">4 Person</option>-->
+<!--</select>-->
+<!--		</div><div class="col-3">-->
+<!--			<input type="date" name="date" class="form-control" id="" placeholder="" autocomplete="off" required>-->
+
+<!--		</div><div class="col-3">-->
+<!--<select name="time" id="time" class="input-text form-control" required>-->
+<!--<option value="">Select</option>-->
+<!--<option value="7:00pm">7:00pm</option>-->
+<!--<option value="8:00pm">8:00pm</option>-->
+<!--<option value="9:00pm">9:00pm</option>-->
+<!--<option value="10:00pm">10:00pm</option>-->
+<!--</select>-->
+<!--		</div>-->
+
+
+
+
+<!--	</div>-->
+<!--	</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
 
 <section class="map-section">
 <div class="google-map-section">
-<div class="map-wrapper js-google-map" data-makericon="{% static 'website/images/icons/map-icon.png' %}" data-makers="[[&quot;REON&quot;, &quot;Now that you visited our website,<br> how about checking out our office too?&quot;, 40.758913, -73.986228]]">
-<div class="map__holder js-map-holder" id="map"></div>
+<!--<div class="map-wrapper js-google-map" data-makericon="{% static 'website/images/icons/map-icon.png' %}" data-makers="[[&quot;REON&quot;, &quot;Now that you visited our website,<br> how about checking out our office too?&quot;, 11.14061765121112, 75.94901973953691]]">-->
+<!--	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d411.3140234819433!2d75.83698217515588!3d11.25401647658397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b946032ba75%3A0xf5ed91156d32a4f2!2sCyberpark%20Kozhikode!5e0!3m2!1sen!2sin!4v1650979829433!5m2!1sen!2sin" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+<!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.6350690420527!2d75.9456667092026!3d11.140532988985475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64efeb68826df%3A0xacf29d816d02287a!2sCalicut%20International%20Airport%20(CCJ)!5e0!3m2!1sen!2sin!4v1714823739575!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2962.429207532633!2d-72.55644068940389!3d42.05541867110277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e6e5da456ce03f%3A0x8e0d302bd7e09ee8!2sWilliams%20Place%20Shopping%20Mall%20Shopping%20Center%2C%20827%20Williams%20St%20b%2C%20Longmeadow%2C%20MA%2001106%2C%20USA!5e0!3m2!1sen!2sin!4v1715015770540!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<!--<div class="map__holder js-map-holder" id="map"></div>-->
 </div>
 </div>
 </section>
@@ -322,6 +353,14 @@ At
 
 {% include 'website/layouts/footer.html' %}
 
+{% if popup %}
+<script>
+window.onload = function() {
+  $('#exampleModal').modal('show');
+}
+
+</script>
+{% endif %}
 <script>
 
 	$('#myModal').on('shown.bs.modal', function () {

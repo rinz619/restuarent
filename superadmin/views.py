@@ -21,7 +21,6 @@ import sys
 class index(View):
     def get(self, request):
         context = {}
-
         return renderhelper(request, 'login', 'login',context)
     def post(self, request):
         context = {}
@@ -38,6 +37,31 @@ class index(View):
             return renderhelper(request, 'login', 'login',context)
 
 
+def profile(request):
+    ml = request.session.get('email')
+    profile = CustomUser.objects.get(email=ml)
+    if request.method == 'POST':
+        opass = request.POST['oldpass']
+        npass = request.POST['newpass']
+        cpass = request.POST['cpass']
+        if profile.check_password(opass):
+
+            if npass == cpass:
+                profile.set_password(npass)
+                # profile.pass_text = npass
+                profile.save()
+                messages.info(request, 'Password Changed Successfully')
+            else:
+                messages.info(request, 'Password Not Matching')
+        else:
+            messages.info(request, 'Your Old Password Not Matching')
+    else:
+        opass = ''
+        npass = ''
+        cpass = ''
+    context = {'opass':opass,'npass':npass,'cpass':cpass}
+    return render(request, 'superadmin/profile.html',context)
+
 class Logout(LoginRequiredMixin,View):
     def get(self, request):
         logout(request)
@@ -47,6 +71,8 @@ class Logout(LoginRequiredMixin,View):
 class dashboard(LoginRequiredMixin,View):
     def get(self, request):
         context = {}
+        context['category'] = len(Category.objects.all())
+        context['menu'] = len(Menu.objects.all())
         return renderhelper(request, 'home', 'index',context)
 
 
@@ -120,18 +146,55 @@ class bannercreate(LoginRequiredMixin, View):
             data = Banner()
             messages.info(request, 'Successfully Added')
 
-
+        title = request.POST['title']
         image = request.FILES.get('imagefile')
-        file_extension = image.name.split('.')[-1].lower()
-        if file_extension in ['jpg', 'jpeg', 'png', 'gif']:
-            type = 1
-        else:
-            type = 2
-        data.type=type
-        data.image=image
+        if image:
+            file_extension = image.name.split('.')[-1].lower()
+            if file_extension in ['jpg', 'jpeg', 'png', 'gif']:
+                type = 1
+            else:
+                type = 2
+            data.image = image
+            data.type=type
+
+        data.title=title
         data.save()
         return redirect('superadmin:bannerlist')
 
+def popupstatus(requst):
+    vl = requst.GET['vl']
+    print(vl)
+    cat = Popups.objects.get(id=1)
+    if vl == '2':
+        cat.is_active = False
+    else:
+        cat.is_active = True
+    cat.save()
+
+    return JsonResponse({'status':True})
+class popup(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+
+        context['data'] = Popups.objects.get(id=1)
+
+        return renderhelper(request, 'banner', 'banner-create2', context)
+
+    def post(self, request, id=None):
+        try:
+            data = Popups.objects.get(id=id)
+            messages.info(request, 'Successfully Updated')
+        except:
+            data = Popups()
+            messages.info(request, 'Successfully Added')
+
+        # title = request.POST['title']
+        image = request.FILES.get('imagefile')
+
+        data.image = image
+
+        data.save()
+        return redirect('superadmin:popup')
     # Banner module end
 
 
@@ -334,7 +397,7 @@ class menulist(LoginRequiredMixin, View):
             if status:
                 conditions &= Q(is_active=status)
             data_list = Menu.objects.filter(conditions).order_by('-id')
-            paginator = Paginator(data_list, 1)
+            paginator = Paginator(data_list, 15)
 
             try:
                 datas = paginator.page(page)
@@ -348,7 +411,7 @@ class menulist(LoginRequiredMixin, View):
             return JsonResponse({'status': True, 'template': html_content})
 
         data = Menu.objects.all().order_by('-id')
-        p = Paginator(data, 1)
+        p = Paginator(data, 15)
         page_num = request.GET.get('page', 1)
         try:
             page = p.page(page_num)
@@ -474,10 +537,12 @@ class testimonialcreate(LoginRequiredMixin, View):
 
         user = request.POST['user']
         description = request.POST['message']
+        star = request.POST['star']
 
 
         data.user=user
         data.description=description
+        data.star=star
         data.is_active=True
         data.save()
         return redirect('superadmin:testimoniallist')
@@ -485,3 +550,53 @@ class testimonialcreate(LoginRequiredMixin, View):
     # Testimonial module end
 
 
+class reservationlist(LoginRequiredMixin, View):
+    def get(self, request, id=None):
+        context = {}
+        conditions = Q()
+
+        if is_ajax(request):
+            page = request.GET.get('page', 1)
+            context['page'] = page
+            status = request.GET.get('status')
+            type = request.GET.get('type')
+            if type == '1':
+                id = request.GET.get('id')
+                vl = request.GET.get('vl')
+                cat = Reservations.objects.get(id=id)
+                if vl == '2':
+                    cat.is_active = False
+                else:
+                    cat.is_active = True
+                cat.save()
+                messages.info(request, 'Successfully Updated')
+            elif type == '2':
+                id = request.GET.get('id')
+                Reservations.objects.filter(id=id).update(is_active=True)
+                messages.info(request, 'Successfully Reserved')
+            if status:
+                conditions &= Q(is_active=status)
+            data_list = Reservations.objects.filter(conditions).order_by('-id')
+            paginator = Paginator(data_list, 15)
+
+            try:
+                datas = paginator.page(page)
+            except PageNotAnInteger:
+                datas = paginator.page(1)
+            except EmptyPage:
+                datas = paginator.page(paginator.num_pages)
+            context['datas'] = datas
+            template = loader.get_template('superadmin/reservations/reservation-table.html')
+            html_content = template.render(context, request)
+            return JsonResponse({'status': True, 'template': html_content})
+
+        data = Reservations.objects.all().order_by('-id')
+        p = Paginator(data, 15)
+        page_num = request.GET.get('page', 1)
+        try:
+            page = p.page(page_num)
+        except EmptyPage:
+            page = p.page(1)
+        context['datas'] = page
+        context['page'] = page_num
+        return renderhelper(request, 'reservations', 'reservation-view', context)

@@ -10,7 +10,7 @@
   <!-- FAVICON -->
   <link rel="shortcut icon" type="image/x-icon" href="{% static 'superadmin/assets/images_ex/icon.png' %}" />
   <!-- TITLE -->
-  <title>Superadmin</title>
+  <title>Royal Spice | Superadmin</title>
   <!-- BOOTSTRAP CSS -->
   <link id="style" href="{% static 'superadmin/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
   <!-- STYLE CSS -->
@@ -78,7 +78,7 @@
         <div class="app-sidebar">
           <div class="side-header">
             <a class="header-brand1" href="{% url 'superadmin:dashboard' %}">
-              <h3>SUPERADMIN</h3>
+              <h3>Royal Spice</h3>
             </a>
             <!-- LOGO -->
           </div>
@@ -96,6 +96,13 @@
                 <a class="side-menu__item has-link" data-bs-toggle="slide" href="{% url 'superadmin:dashboard' %}">
                   <i class="side-menu__icon fe fe-home"></i>
                   <span class="side-menu__label">Dashboard</span>
+                </a>
+              </li>
+
+              <li class="slide">
+                <a class="side-menu__item has-link" data-bs-toggle="slide" href="{% url 'superadmin:popup' %}">
+                  <i class="side-menu__icon fe fe-user"></i>
+                  <span class="side-menu__label">Popup</span>
                 </a>
               </li>
 
@@ -131,6 +138,12 @@
                   <span class="side-menu__label">Testimonials</span>
                 </a>
               </li>
+<!--              <li class="slide">-->
+<!--                <a class="side-menu__item has-link" data-bs-toggle="slide" href="{% url 'superadmin:testimoniallist' %}">-->
+<!--                  <i class="side-menu__icon fe fe-user"></i>-->
+<!--                  <span class="side-menu__label">Reservations</span>-->
+<!--                </a>-->
+<!--              </li>-->
 
             </ul>
             <div class="slide-right" id="slide-right">

@@ -6,7 +6,7 @@
 <section class="breadcrumb-our-team breadcrumb-menu-section section-box" style="background-image: url({% static 'website/images/our-team-bc.jpg' %})">
 <div class="container">
 <div class="breadcrumb-inner">
-<h1>Starter</h1>
+<h1>{{menu.0.category.title}}</h1>
 <!--<div class="menu">-->
 <!--<div class="menu-inner">-->
 <!--<img src="images/icons/menu-starter-bc-1.png" alt="menu-starter-1">-->
@@ -30,8 +30,8 @@
 
 <div class="container">
 <div class="menu-heading">
-<img src="{% static 'website/images/icons/menu-starter-icon-1.png' %}" alt="salad">
-<h2>SALAD</h2>
+<!--<img src="{% static 'website/images/icons/menu-starter-icon-1.png' %}" alt="salad">-->
+<h2></h2>
 </div>
 <div id="" class="">
 <div class="item row">
@@ -40,12 +40,12 @@
 
 <div class="item-content col-lg-6  salad_card">
 <div class="image">
-<img src="{% static 'website/images/menu-starter-salad-1.jpg' %}" alt="salad">
+<img src="{{i.image.url}}" alt="salad">
 </div>
 <div class="info">
-<h5>Peanut And Ugli Fruit Salad</h5>
-<p>Socca and fresh apple served on a bed of lettuce.</p>
-<span>$15</span>
+<h5>{{i.title}}</h5>
+<p>{{i.description}}</p>
+<span>${{i.price}}</span>
 </div>
 </div>
 

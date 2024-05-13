@@ -115,6 +115,24 @@ function filterbanner(data) {
   });
   }
 
+ function popupstatus(id,vl) {
+
+
+
+    $.ajax({
+      url: '/superadmin/popupstatus',
+      type: 'GET',
+      data: {id:id,vl:vl},
+
+      success: function(data) {
+
+       window.location.reload();
+
+
+      }
+  });
+  }
+
 
  function bannerdelete() {
 
@@ -367,6 +385,31 @@ function filtertestimonial(data) {
       url: url,
       type: 'GET',
       data: {page:page,status:status,id:id,type:2,search:search},
+
+      success: function(data) {
+        $("#modaldemo5").modal('hide');
+
+       $(".table-responsive").html(data.template)
+
+
+      }
+  });
+  }
+
+
+ function reserve_now() {
+
+      page=$("#page").val();
+      id=$("#hid").val();
+
+
+//    var search = $('#searchkey').val()
+    var status = $('#status').val()
+    var url = $('#url').val()
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {page:page,status:status,id:id,type:2},
 
       success: function(data) {
         $("#modaldemo5").modal('hide');
