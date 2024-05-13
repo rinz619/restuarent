@@ -21,7 +21,6 @@ import sys
 class index(View):
     def get(self, request):
         context = {}
-
         return renderhelper(request, 'login', 'login',context)
     def post(self, request):
         context = {}
@@ -38,6 +37,31 @@ class index(View):
             return renderhelper(request, 'login', 'login',context)
 
 
+def profile(request):
+    ml = request.session.get('email')
+    profile = CustomUser.objects.get(email=ml)
+    if request.method == 'POST':
+        opass = request.POST['oldpass']
+        npass = request.POST['newpass']
+        cpass = request.POST['cpass']
+        if profile.check_password(opass):
+
+            if npass == cpass:
+                profile.set_password(npass)
+                # profile.pass_text = npass
+                profile.save()
+                messages.info(request, 'Password Changed Successfully')
+            else:
+                messages.info(request, 'Password Not Matching')
+        else:
+            messages.info(request, 'Your Old Password Not Matching')
+    else:
+        opass = ''
+        npass = ''
+        cpass = ''
+    context = {'opass':opass,'npass':npass,'cpass':cpass}
+    return render(request, 'superadmin/profile.html',context)
+
 class Logout(LoginRequiredMixin,View):
     def get(self, request):
         logout(request)
@@ -47,6 +71,8 @@ class Logout(LoginRequiredMixin,View):
 class dashboard(LoginRequiredMixin,View):
     def get(self, request):
         context = {}
+        context['category'] = len(Category.objects.all())
+        context['menu'] = len(Menu.objects.all())
         return renderhelper(request, 'home', 'index',context)
 
 

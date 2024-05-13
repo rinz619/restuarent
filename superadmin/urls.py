@@ -13,6 +13,7 @@ urlpatterns = [
 
     path('',views.index.as_view(),name='login'),
     path('Dashboard',views.dashboard.as_view(),name='dashboard'),
+    path('profile',views.profile,name="profile"),
     path('Logout', views.Logout.as_view(), name='Logout'),
 
     path('popup', views.popup.as_view(), name='popup'),
